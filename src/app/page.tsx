@@ -18,7 +18,7 @@ Rico en ingredientes nutricionales importantes. Contiene calostro bovino y yema 
   ]
   return (
     <div className="mt-14 flex flex-col justify-center items-center">
-      <div className="mt-2 flex justify-center w-full items-center text-white container mx-auto">
+      <div className="mt-2 sm:flex-row flex-col flex justify-center w-full items-center text-white container mx-auto">
         <div>
           <Image className="rounded" width={300}
           height={500}
