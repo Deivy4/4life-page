@@ -3,24 +3,34 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="relative w-full h-[500px] overflow-hidden">
-            <video
-                src={"/stock-footage-abstract-animation-of-falling-diamonds-in-slow-motion-on-a-black-background-d-vertical-video.webm"}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-            >
-                <source src="/path/to/your/video.mp4" type="video/mp4" />
-                Tu navegador no soporta videos.
-            </video>
-            <div className="absolute inset-0 flex justify-center items-center text-white bg-black bg-opacity-50">
-                <div className='flex flex-col items-between'>
-                    <h1 className="text-3xl font-bold">4life afiliados independientes</h1>
-                    <div className='w-full flex justify-start items-start'>
-                        <button className="w-[40%] text-black  px-2 py-2 bg-white rounded">Comprar productos</button>
+        <div className="p-6 bg-cover bg-center text-white flex justify-center items-center relative"
+             style={{ backgroundImage: 'url(/images/banner-bg.jpg)' }}>
+            <div className="flex items-center justify-center flex-col sm:flex-row pb-10">
+                <div className="w-[80%] sm:w-[50%] h-[50%] flex">
+                    <div className="flex-1"></div>
+                    <div className="w-full sm:w-[80%] gap-6 flex flex-col">
+                        <h1 className="text-4xl font-bold text-shadow-lg">
+                            {"Bienestar y Salud a Tu Alcance"}
+                        </h1>
+                        <p className="text-lg leading-relaxed mb-6">
+                            {"Descubre nuestra línea exclusiva de productos 4Life, diseñados para fortalecer tu sistema inmunológico y mejorar tu calidad de vida. Vive mejor, siéntete mejor."}
+                        </p>
+                        
+                        {/* Llamado a la acción */}
+                        <a
+                            href="#seccion-products"
+                            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-xl transition-all duration-300 hover:bg-blue-500"
+                        >
+                            Ver Productos
+                        </a>
                     </div>
+                </div>
+                <div className="w-[50%] h-[50%] flex justify-center">
+                    <img
+                        alt="Productos 4Life"
+                        className="w-[45%] min-w-[300px] rounded-lg shadow-lg"
+                        src={"/test-image-removebg-preview.png"}
+                    />
                 </div>
             </div>
         </div>

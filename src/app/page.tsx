@@ -10,7 +10,7 @@ export default function Home() {
       <div className="mt-2 sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <Banner/>
       </div>
-      <h2 className={`${fontTitle.className} text-4xl my-8 text-white`}>Productos de 4life</h2>
+      <h2 id="seccion-products" className={`${fontTitle.className} text-4xl my-8 text-white`}>Productos de 4life</h2>
       <div className="justify-center text-white container">
         <div className="w-[100%] flex flex-wrap gap-4  justify-center mb-8">
           {products.map((item, index)=>{

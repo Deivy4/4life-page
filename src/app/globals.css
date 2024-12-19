@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 body{
   min-height: 100vh;
   background: rgb(0,212,255);
