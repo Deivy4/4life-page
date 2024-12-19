@@ -3,7 +3,7 @@ export default function Product(
     {urlImage, title, contentText} : 
     {urlImage : string, title :string, contentText : string}){
     return (
-        <div className=" bg-gradient-to-t from-[#606060] group text-white  cursor-pointer w-[320px] rounded p-2 py-4 hover:bg-black hover:bg-opacity-40">
+        <div className=" group text-white  cursor-pointer w-[320px] rounded p-2 py-4 hover:bg-black hover:bg-opacity-40">
             <div className="flex justify-center items-center">
                 <Image style={{ position: 'relative', zIndex: 1 }} className="shadow-2xl relative group-hover:scale-105 transition-transform duration-300 ease-in-out transform rounded" src={urlImage} width={250} height={130} alt="product 4life"/>
             </div>

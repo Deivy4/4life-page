@@ -19,8 +19,8 @@ const Banner = () => {
                         {/* Llamado a la acción */}
                         <a
                             href="#seccion-products"
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-xl transition-all duration-300 hover:bg-blue-500"
-                        >
+                            className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-6 py-3 rounded-lg text-xl font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
+                            >
                             Ver Productos
                         </a>
                     </div>
