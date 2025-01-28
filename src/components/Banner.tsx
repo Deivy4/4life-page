@@ -3,9 +3,9 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="p-6 bg-cover bg-center text-white flex justify-center items-center relative">
+        <div className="p-6 bg-center text-gray-700 flex justify-center items-center relative">
             <div className="flex items-center justify-center flex-col sm:flex-row pb-10">
-                <div className="w-[80%] sm:w-[50%] h-[50%] flex">
+                <div className="w-[80%] sm:w-[50%] h-[50%] flex max-w-[1000px]">
                     <div className="flex-1"></div>
                     <div className="w-full sm:w-[80%] gap-6 flex flex-col">
                         <h1 className="text-4xl font-bold text-shadow-lg">
@@ -18,7 +18,7 @@ const Banner = () => {
                         {/* Llamado a la acción */}
                         <a
                             href="#seccion-products"
-                            className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-6 py-3 rounded-lg text-xl font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
+                            className="bg-blue-800 text-white hover:bg-blue-700 px-6 py-3 rounded-lg text-xl font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
                             >
                             Ver Productos
                         </a>
@@ -27,7 +27,7 @@ const Banner = () => {
                 <div className="w-[50%] h-[50%] flex justify-center pt-3">
                     <img
                         alt="Productos 4Life"
-                        className="w-[45%] min-w-[300px] rounded-lg shadow-lg"
+                        className="w-[45%] min-w-[300px] max-w-[750px] rounded-lg shadow-lg"
                         src={"/test-image-removebg-preview.jpeg"}
                     />
                 </div>
