@@ -3,8 +3,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="p-6 bg-cover bg-center text-white flex justify-center items-center relative"
-             style={{ backgroundImage: 'url(/images/banner-bg.jpg)' }}>
+        <div className="p-6 bg-cover bg-center text-white flex justify-center items-center relative">
             <div className="flex items-center justify-center flex-col sm:flex-row pb-10">
                 <div className="w-[80%] sm:w-[50%] h-[50%] flex">
                     <div className="flex-1"></div>
@@ -25,11 +24,11 @@ const Banner = () => {
                         </a>
                     </div>
                 </div>
-                <div className="w-[50%] h-[50%] flex justify-center">
+                <div className="w-[50%] h-[50%] flex justify-center pt-3">
                     <img
                         alt="Productos 4Life"
                         className="w-[45%] min-w-[300px] rounded-lg shadow-lg"
-                        src={"/test-image-removebg-preview.png"}
+                        src={"/test-image-removebg-preview.jpeg"}
                     />
                 </div>
             </div>

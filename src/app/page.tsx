@@ -1,11 +1,14 @@
-import Image from "next/image"
 import Product from "@/components/Product"
 import products from './data/products.json'
 import { Playfair_Display } from 'next/font/google'
 import Banner from '../components/Banner'
+import SideRightBar from '@/components/SideRightBar'
 const fontTitle = Playfair_Display({subsets:['latin'], weight : "400"})
+
 export default function Home() {
   return (
+    <>
+    <SideRightBar />
     <div className="mt-14 flex flex-col justify-center items-center">
       <div className="mt-2 sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <Banner/>
@@ -27,5 +30,6 @@ export default function Home() {
         </div>
       </div> */}
     </div>
+  </>
   )
 }
