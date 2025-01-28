@@ -3,6 +3,7 @@ import products from './data/products.json'
 import { Playfair_Display } from 'next/font/google'
 import Banner from '../components/Banner'
 import InfoProductUnique from '@/components/InfoProductUnique'
+import VideoBanner from '@/components/VideoBanner'
 import SideRightBar from '@/components/SideRightBar'
 const fontTitle = Playfair_Display({subsets:['latin'], weight : "400"})
 
@@ -17,6 +18,9 @@ export default function Home() {
       <div className="mt-2 mb-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <InfoProductUnique/>
       </div>
+      <div className="mt-2 mb-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
+        <VideoBanner/>
+      </div>
       <h2 id="seccion-products" className={`${fontTitle.className} text-4xl my-8 text-blue-800`}>Productos de 4life</h2>
       <div className="justify-center text-white container">
         <div className="flex flex-wrap justify-center">
@@ -27,6 +31,7 @@ export default function Home() {
                   urlImage={item.urlImage}
                   title={item.title}
                   contentText={item.text}
+                  urlComprar={item.urlComprar}
                 />
               </div>
             );

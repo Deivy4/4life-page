@@ -14,7 +14,7 @@ export default function Footer(){
                         <FaSquareInstagram className=" text-2xl"/>
                         <p className="text-[20px] w-full ">Instagram</p>
                     </a>
-                    <a className="flex gap-4 cursor-pointer hover:text-black p-2 items-center">
+                    <a target="_blank" href="https://wa.link/q8qr69" className="flex gap-4 cursor-pointer hover:text-black p-2 items-center">
                         <FaWhatsapp className=" text-2xl"/>
                         <p className="text-[20px] w-full ">Whatsapp</p>
                     </a>
