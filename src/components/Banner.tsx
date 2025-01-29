@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className="p-6 bg-center text-gray-700 flex justify-center items-center relative">
             <div className="flex items-center justify-center flex-col sm:flex-row pb-10">
-                <div className="w-[80%] sm:w-[50%] h-[50%] flex max-w-[1000px]">
+                <div className="w-[90%] sm:w-[50%] h-[50%] flex max-w-[1000px]">
                     <div className="flex-1"></div>
                     <div className="w-full sm:w-[80%] gap-6 flex flex-col">
                         <h1 className="text-4xl font-bold text-shadow-lg">
@@ -22,6 +22,7 @@ const Banner = () => {
                             >
                             Ver Productos
                         </a>
+                        <img className='w-32' src="/Logo-4Life-Afiliado-Independiente-.png.webp" alt="" />
                     </div>
                 </div>
                 <div className="w-[50%] h-[50%] flex justify-center pt-3">
