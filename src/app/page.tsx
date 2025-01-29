@@ -15,14 +15,14 @@ export default function Home() {
       <div className="mt-2 bg-white rounded-lg shadow-md sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <Banner/>
       </div>
-      <div className="mt-2 mb-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
+      <div className="my-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <InfoProductUnique/>
       </div>
       <div className="mt-2 mb-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <VideoBanner/>
       </div>
       <h2 id="seccion-products" className={`${fontTitle.className} text-4xl my-8 text-blue-800`}>Productos de 4life</h2>
-      <div className="justify-center text-white container">
+      <div className="justify-center text-white container mb-4">
         <div className="flex flex-wrap justify-center">
           {products.map((item, index) => {
             return (

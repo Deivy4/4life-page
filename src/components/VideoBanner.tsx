@@ -27,7 +27,7 @@ const VideoBanner = () => {
         onPlay={handleOnPlay} // Detecta cuando el video empieza a reproducirse
         onPause={handleOnPause} // Detecta cuando el video se pausa
         src="/Descubre_los_Beneficios_de_4Life_Transfer_Factor_Plus_en_Español.mp4"
-        className="w-full"
+        className="w-full max-h-[600px]"
       >
         Tu navegador no soporta la etiqueta de video.
       </video>
