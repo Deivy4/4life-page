@@ -37,7 +37,7 @@ export default function PopupPaises({
             className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
           >
             <h4 className='text-dynamic'>Argentina</h4>
-            <img className="w-6 cursor-pointer" src="/bandera-Argentina.png" alt="" />
+            <img className="w-6 cursor-pointer" src="/bandera-argentina.png" alt="" />
           </button>
         </div>
       </div>
