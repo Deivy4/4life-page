@@ -5,19 +5,23 @@ export default function Footer(){
     return (
         <div className="w-full bg-blue-800 text-white">
             <div className="h-[300px] container mx-auto grid grid-cols-3 p-8">
-                <div className="flex flex-col gap-4 cursor-pointer">
+                <div className="flex flex-col gap-4">
                     <a target="_blank" href={"https://www.facebook.com/profile.php?id=61562064733978"} className="w-full flex gap-4 p-2 items-center">
-                        <FaFacebook className="text-2xl "/>
-                        <p className="text-[20px] w-full">Facebook</p>
+                        <FaFacebook className="text-2xl min-w-5 cursor-pointer"/>
+                        <p className="text-[20px] w-full cursor-pointer">Facebook</p>
                     </a>
-                    <a className="flex  gap-4 cursor-pointer p-2 items-center">
-                        <FaSquareInstagram className=" text-2xl rounded bg-red-400"/>
-                        <p className="text-[20px] w-full ">Instagram</p>
+                    <a className="flex  gap-4  p-2 items-center">
+                        <FaSquareInstagram className=" min-w-5 text-2xl rounded bg-red-400 cursor-pointer"/>
+                        <p className="text-[20px] w-full cursor-pointer">Instagram</p>
                     </a>
-                    <a target="_blank" href="https://wa.link/q8qr69" className="flex gap-4 cursor-pointer p-2 items-center">
-                        <FaWhatsapp className=" text-2xl text-green-500"/>
-                        <p className="text-[20px] w-full ">Whatsapp</p>
+                    <a target="_blank" href="https://wa.link/q8qr69" className="flex gap-4  p-2 items-center">
+                        <FaWhatsapp className=" text-2xl min-w-5 text-green-500 cursor-pointer"/>
+                        <p className="text-[20px] w-full cursor-pointer">Whatsapp</p>
                     </a>
+                </div>
+                <div></div>
+                <div className="flex items-end justify-end">
+                    <img className="max-w-96 w-full md:w-48 md:h-28" src="/logo-afiliado-independiente-blanco.webp" alt="" />
                 </div>
             </div>
         </div>  

@@ -18,7 +18,7 @@ const InfoProductUnique = () => {
                     <div className="w-full sm:w-[80%] gap-6 flex flex-col">
                         <p className='text-xs sm:text-xl text-center'>Complementa tu dieta y promueve el bienestar general de tu organismo con este suplemento dietario exclusivo de 4Life a base de L-Glutamina y otros aminoácidos que complementan tu dieta y promueven el bienestar de tu organismo</p>
                         <div className='w-full flex justify-center'>
-                            <button onClick={()=>{window.open("https://colombia.4life.com/davidazul/product/glutamine-prime---colombia/3870", "_blank")}} className=" w-[50%] text-xs sm:text-xl min-w-[170px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
+                            <button onClick={()=>{window.open("https://colombia.4life.com/davidazul/product/glutamine-prime---colombia/3870", "_blank")}} className=" md:w-[50%] text-xs sm:text-xl min-w-[150px] md:min-w-[220px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
                                 >
                                 Ver más información
                             </button>
