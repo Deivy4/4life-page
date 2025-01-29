@@ -23,13 +23,14 @@ const Banner = () => {
                             Ver Productos
                         </a>
                         <img className='w-32' src="/Logo-4Life-Afiliado-Independiente-.png.webp" alt="" />
+                        
                     </div>
                 </div>
                 <div className="w-[50%] h-[50%] flex justify-center pt-3">
                     <img
                         alt="Productos 4Life"
                         className="w-[45%] min-w-[300px] max-w-[750px] rounded-lg shadow-lg"
-                        src={"/test-image-removebg-preview.jpeg"}
+                        src={"/Imagen-Afiliados.jpeg"}
                     />
                 </div>
             </div>
