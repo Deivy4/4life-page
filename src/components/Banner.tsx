@@ -9,7 +9,7 @@ const Banner = () => {
                     <div className="flex-1"></div>
                     <div className="w-full sm:w-[80%] gap-6 flex flex-col">
                         <h1 className="text-4xl font-bold text-shadow-lg">
-                            {"Bienestar y Salud a Tu Alcance"}
+                            {"BIENESTAR Y SALUD A TU ALCANCE"}
                         </h1>
                         <p className="text-lg leading-relaxed mb-6">
                             {"Descubre nuestra línea exclusiva de productos 4Life, diseñados para fortalecer tu sistema inmunológico y mejorar tu calidad de vida. Vive mejor, siéntete mejor."}
