@@ -3,30 +3,21 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - main  # Esto ejecuta el flujo de trabajo solo cuando se hace un push a la rama main
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # El entorno donde se ejecuta la acción, en este caso un entorno de Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2  # Obtiene el código de tu repositorio
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20.9.0' #specifica la versión de Node.js que quieres usar
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Install dependencies
-        run: npm install  # Instala las dependencias de tu proyecto
-
-      - name: Build project
-        run: npm run build  # Ejecuta el build de tu proyecto Next.js
-
-      - name: Deploy to server
-        run: |
-            ssh -p 5179 -o StrictHostKeyChecking=no davish@149.50.147.80 "cd /home/davish/4life-application/4life-page && git pull origin main && sudo npm install && sudo npm run build && sudo pm2 restart 4life-app"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        # Este paso usa SSH para conectarse al servidor y ejecutar los comandos para actualizar y reiniciar la aplicación
+    - name: Run deployment script
+      run: |
+        ssh -p 5179 davish@149.50.147.80 "cd /home/davish/4life-application/4life-page && git pull origin main && npm install && npm run build && pm2 restart 4life-app"
