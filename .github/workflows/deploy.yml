@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.9.0specifica la versión de Node.js que quieres usar
+          node-version: '20.9.0' #specifica la versión de Node.js que quieres usar
 
       - name: Install dependencies
         run: npm install  # Instala las dependencias de tu proyecto
