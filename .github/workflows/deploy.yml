@@ -1,0 +1,32 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # Esto ejecuta el flujo de trabajo solo cuando se hace un push a la rama main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # El entorno donde se ejecuta la acción, en este caso un entorno de Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Obtiene el código de tu repositorio
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.9.0specifica la versión de Node.js que quieres usar
+
+      - name: Install dependencies
+        run: npm install  # Instala las dependencias de tu proyecto
+
+      - name: Build project
+        run: npm run build  # Ejecuta el build de tu proyecto Next.js
+
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no user@your_server_ip "cd /home/davish/4life-application/4life-page && git pull origin main && npm install && npm run build && pm2 restart your-app-name"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        # Este paso usa SSH para conectarse al servidor y ejecutar los comandos para actualizar y reiniciar la aplicación
