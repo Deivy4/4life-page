@@ -26,7 +26,7 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no user@your_server_ip "cd /home/davish/4life-application/4life-page && git pull origin main && npm install && npm run build && pm2 restart your-app-name"
+            ssh -p 5179 -o StrictHostKeyChecking=no davish@149.50.147.80 "cd /home/davish/4life-application/4life-page && git pull origin main && npm install && npm run build && pm2 restart 4life-app"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         # Este paso usa SSH para conectarse al servidor y ejecutar los comandos para actualizar y reiniciar la aplicación
