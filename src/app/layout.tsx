@@ -25,7 +25,7 @@ export default function RootLayout({
         <meta property="og:url" content="https://proteccionimnunitaria.com/"></meta>
         <meta property="og:title" content="Protección inmunitaria"></meta>
         <meta property="og:description" content="Descubre nuestra línea exclusiva de productos 4Life, diseñados para fortalecer tu sistema inmunológico y mejorar tu calidad de vida. Vive mejor, siéntete mejor."></meta>
-        <meta property="og:image" content="https://proteccionimnunitaria.com/images-icons/favicon.ico"></meta>
+        <meta property="og:image" content="https://proteccionimnunitaria.com/images-icons/imagen-shared.jpg"></meta>
         <meta property="og:image:alt" content="Icono"></meta>
         <meta property="og:image:type" content="image/jpeg"></meta>
         <meta property="og:image:width" content="1200"></meta>
