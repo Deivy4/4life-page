@@ -10,7 +10,7 @@ export default function Footer(){
                         <FaFacebook className="text-2xl min-w-5 cursor-pointer"/>
                         <p className="text-[20px] w-full cursor-pointer">Facebook</p>
                     </a>
-                    <a className="flex  gap-4  p-2 items-center">
+                    <a target="_blank" href="https://www.instagram.com/davidazul.4life/" className="flex  gap-4  p-2 items-center">
                         <FaSquareInstagram className=" min-w-5 text-2xl rounded bg-red-400 cursor-pointer"/>
                         <p className="text-[20px] w-full cursor-pointer">Instagram</p>
                     </a>
