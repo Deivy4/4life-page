@@ -13,9 +13,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
-        
         <link rel="icon" type="image/png" href="images-icons/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="images-icons/favicon.svg" />
         <link rel="shortcut icon" href="images-icons/favicon.ico" />

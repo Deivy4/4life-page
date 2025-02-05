@@ -26,7 +26,7 @@ const VideoBanner = () => {
         ref={videoRef}
         onPlay={handleOnPlay} // Detecta cuando el video empieza a reproducirse
         onPause={handleOnPause} // Detecta cuando el video se pausa
-        src="/Descubre_los_Beneficios_de_4Life_Transfer_Factor_Plus_en_Español.mp4"
+        src="https://res.cloudinary.com/dt4pkrj5j/video/upload/v1738765170/videos/Descubre_los_Beneficios_de_4Life_Transfer_Factor_Plus_en_Espa%C3%B1ol_ovmm8y.mp4"
         className="w-full max-h-[600px] sm:min-h-[600px]"
       >
         Tu navegador no soporta la etiqueta de video.

@@ -22,7 +22,7 @@ const Banner = () => {
                             >
                             Ver Productos
                         </a>
-                        <img className='w-32' src="/Logo-4Life-Afiliado-Independiente-.png.webp" alt="" />
+                        <img className='w-32' src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765035/photos/Logo-4Life-Afiliado-Independiente-.png_sz8vck.webp" alt="" />
                         
                     </div>
                 </div>
@@ -30,7 +30,7 @@ const Banner = () => {
                     <img
                         alt="Productos 4Life"
                         className="w-[45%] min-w-[300px] max-w-[750px] rounded-lg shadow-lg"
-                        src={"/Imagen-Afiliados.jpeg"}
+                        src={"https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765035/photos/Imagen-Afiliados_begkqj.jpg"}
                     />
                 </div>
             </div>

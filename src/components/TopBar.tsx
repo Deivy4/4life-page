@@ -21,13 +21,13 @@ export default function TopBar(){
                     <FaShieldVirus className=" text-yellow-300 mb-1" style={{minHeight : "30px", maxHeight : "30px", maxWidth:'30px', minWidth:'30px'}}/>
                     <p className="text-white">4Life Protección inmunitaria</p>
                     <div className="w-8 md:hidden">
-                        <img onClick={togglePopup} className=" cursor-pointer" src={`${paisActive == "Colombia" ? "/bandera-colombia.png" : "/bandera-argentina.png"}`} alt="" />
+                        <img onClick={togglePopup} className=" cursor-pointer" src={`${paisActive == "Colombia" ? "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-colombia_z1l020.png" : "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-argentina_lhc5ru.png"}`} alt="" />
                     </div>
                 </Link>
                 <div className="w-0 sm:w-[25%] max-w-[500px]"></div>
                 <div className="w-0 text-white sm:w-full flex justify-end max-w-[800px]">
                     <div className="w-8 mr-8">
-                        <img onClick={togglePopup} className=" cursor-pointer" src={`${paisActive == "Colombia" ? "/bandera-colombia.png" : "/bandera-argentina.png"}`} alt="" />
+                        <img onClick={togglePopup} className=" cursor-pointer" src={`${paisActive == "Colombia" ? "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-colombia_z1l020.png" : "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-argentina_lhc5ru.png"}`} alt="" />
                     </div>
                     {/* <Link href="/" className="cursor-pointer">Productos</Link>
                     <Link href="/quienes-somos" className="cursor-pointer">Quiénes somos</Link>

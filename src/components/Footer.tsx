@@ -21,7 +21,7 @@ export default function Footer(){
                 </div>
                 <div></div>
                 <div className="flex items-end justify-end">
-                    <img className="max-w-96 w-full md:w-48 md:h-28" src="/logo-afiliado-independiente-blanco.webp" alt="" />
+                    <img className="max-w-96 w-full md:w-48 md:h-28" src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765035/photos/logo-afiliado-independiente-blanco_opvlwz.webp" alt="" />
                 </div>
             </div>
         </div>  

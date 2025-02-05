@@ -10,7 +10,7 @@ const InfoProductUnique = () => {
                     <img
                         alt="Productos 4Life"
                         className="w-[50%] min-w-[190px] sm:min-w-[400px] max-w-96"
-                        src={"/Glutamine_Prime.png"}
+                        src={"https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765034/photos/Glutamine_Prime_skts5h.png"}
                     />
                     <div className='w-22'></div>
                 </div>
