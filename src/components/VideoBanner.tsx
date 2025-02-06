@@ -1,49 +1,55 @@
 "use client"
-import React, { useRef, useState } from 'react';
 
 const VideoBanner = () => {
-  const videoRef = useRef<HTMLVideoElement>(null); // Referencia al video
-  const [isPlaying, setIsPlaying] = useState(false); // Estado para controlar el play/pause
-
-  const handlePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause(); // Pausar video si ya está reproduciéndose
-      } else {
-        videoRef.current.play(); // Reproducir video si está pausado
-      }
-      setIsPlaying(!isPlaying); // Cambiar el estado
-    }
-  };
-
-  // Cambiar el estado al detectar el cambio de estado del video
-  const handleOnPlay = () => setIsPlaying(true);
-  const handleOnPause = () => setIsPlaying(false);
-
   return (
-    <div className="p-6 bg-center text-gray-700 flex justify-center items-center relative">
-      <video
-        ref={videoRef}
-        onPlay={handleOnPlay} // Detecta cuando el video empieza a reproducirse
-        onPause={handleOnPause} // Detecta cuando el video se pausa
-        src="https://res.cloudinary.com/dt4pkrj5j/video/upload/v1738765170/videos/Descubre_los_Beneficios_de_4Life_Transfer_Factor_Plus_en_Espa%C3%B1ol_ovmm8y.mp4"
-        className="w-full max-h-[600px] sm:min-h-[600px]"
-      >
-        Tu navegador no soporta la etiqueta de video.
-      </video>
-
-      {/* Botón de Play/Pause */}
-      {!isPlaying && (
-        <button
-          onClick={handlePlay}
-          className="absolute text-white text-4xl bg-black bg-opacity-50 rounded-full p-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-            <path d="M8 5v14l11-7z" /> {/* Ícono de play */}
-          </svg>
-        </button>
-      )}
+    <div className="container w-full text-gray-700 flex justify-stretch items-center sm:my-10">
+  <div className="sm:px-4 flex flex-col sm:flex-row items-center justify-stretch py-10 md:pr-0 gap-4 sm:gap-0 w-full">
+    
+    {/* Imagen del Producto */}
+    <div className="w-[70%] sm:w-[50%] h-full flex justify-center pt-3">
+      <img
+        className="w-full min-w-[190px] sm:min-w-[300px] max-w-[600px] rounded"
+        src="https://media2.4life.com/products/TF_Boost_Secondary_1.jpg?width=1000&mode=crop&quality=80"
+        alt="TF-Boost"
+      />
     </div>
+
+    {/* Descripción del Producto */}
+    <div className="w-full px-4 sm:w-[70%] sm:min-w-[360px] h-full max-h-[600px] flex justify-center">
+      <div className="w-full sm:w-[90%] gap-6 flex flex-col">
+
+        {/* Título y Descripción */}
+        <div className="w-full flex justify-center flex-col text-center">
+          <h2 className="my-3 text-4xl text-center text-blue-800 font-bold">
+            TF-Boost
+          </h2>
+
+          <p>
+            El exclusivo producto de 4Life con 1.000 mg de vitamina C. Disfruta de esta conveniente bebida en polvo con un exquisito sabor a naranja, perfecta para fortalecer tu bienestar. Viene en prácticos sobres, ideales para llevar y consumir en cualquier momento y lugar. ¡Anímate a probarla y disfruta su increíble sabor!
+          </p>
+
+          {/* Video del Producto */}
+          <div className="aspect-video h-full  flex items-center justify-center w-full mt-4">
+            <iframe
+              className="w-full h-full rounded-lg shadow-md"
+              src="https://www.youtube.com/embed/Bbm-uahhlOU?si=QPnch2kQqx0HB6B8"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
   );
 };
 

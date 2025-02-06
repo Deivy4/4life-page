@@ -4,10 +4,10 @@ import React from 'react';
 const Banner = () => {
     return (
         <div className="p-6 bg-center text-gray-700 flex justify-center items-center relative">
-            <div className="flex items-center justify-center flex-col sm:flex-row pb-10">
+            <div className="flex items-center justify-center flex-col sm:flex-row pb-10 sm:gap-8 md:gap-0">
                 <div className="w-[90%] sm:w-[50%] h-[50%] flex max-w-[1000px]">
                     <div className="flex-1"></div>
-                    <div className="w-full sm:w-[80%] gap-6 flex flex-col">
+                    <div className="w-full md:w-[80%] gap-6 flex flex-col">
                         <h1 className="text-4xl font-bold text-shadow-lg">
                             {"BIENESTAR Y SALUD A TU ALCANCE"}
                         </h1>

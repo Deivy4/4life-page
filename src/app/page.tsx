@@ -14,10 +14,10 @@ export default function Home() {
         <Banner/>
       </div>
       <div className="my-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
-        <InfoProductUnique/>
-      </div>
-      <div className="mt-2 mb-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
         <VideoBanner/>
+      </div>
+      <div className="my-2 rounded-lg shadow-md bg-white sm:flex-row flex-col flex justify-center w-full items-center text-white mx-auto gap-2">
+        <InfoProductUnique/>
       </div>
       <h2 id="seccion-products" className={`mt-3 text-4xl text-center text-blue-800 font-bold`}>Productos de 4life</h2>
       <div className="justify-center text-white container mb-4">
