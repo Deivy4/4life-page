@@ -1,7 +1,20 @@
 
+"use client"
 import { FaFacebook, FaSquareInstagram, FaWhatsapp } from "react-icons/fa6";
+import { IoShareSocialSharp } from "react-icons/io5";
 
 export default function Footer(){
+    const shared = ()=>{
+        if(navigator.share){
+            navigator.share({
+                title: 'Protección inmunitaria',
+                text: 'Mira esta página increíble!',
+                url: window.location.href
+            })
+            .then(() => console.log('Compartido con éxito'))
+            .catch((error) => console.log('Error al compartir', error));
+        }
+    }
     return (
         <div className="w-full bg-blue-800 text-white">
             <div className="h-[300px] container mx-auto grid grid-cols-3 p-8">
@@ -17,6 +30,10 @@ export default function Footer(){
                     <a target="_blank" href="https://wa.link/q8qr69" className="flex gap-4  p-2 items-center">
                         <FaWhatsapp className=" text-2xl min-w-5 text-green-500 cursor-pointer"/>
                         <p className="text-[20px] w-full cursor-pointer">Whatsapp</p>
+                    </a>
+                    <a onClick={shared} className="flex gap-4  p-2 items-center">
+                        <IoShareSocialSharp className=' text-3xl min-w-7 rounded-full border-2 border-white p-1 text-white'/>
+                        <p className="text-[20px] w-full cursor-pointer">Compartir</p>
                     </a>
                 </div>
                 <div></div>

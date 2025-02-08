@@ -23,7 +23,6 @@ const Banner = () => {
                             Ver Productos
                         </a>
                         <img className='w-32' src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765035/photos/Logo-4Life-Afiliado-Independiente-.png_sz8vck.webp" alt="" />
-                        
                     </div>
                 </div>
                 <div className="w-[50%] h-[50%] flex justify-center pt-3">

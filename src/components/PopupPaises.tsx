@@ -30,14 +30,14 @@ export default function PopupPaises({
             className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
           >
             <h4 className='text-dynamic'>Colombia</h4>
-            <img className="w-6 cursor-pointer" src="/bandera-colombia.png" alt="" />
+            <img className="w-6 cursor-pointer" src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-colombia_z1l020.png" alt="" />
           </button>
           <button 
             onClick={() => togglePais("Argentina")} 
             className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
           >
             <h4 className='text-dynamic'>Argentina</h4>
-            <img className="w-6 cursor-pointer" src="/bandera-argentina.png" alt="" />
+            <img className="w-6 cursor-pointer" src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-argentina_lhc5ru.png" alt="" />
           </button>
         </div>
       </div>

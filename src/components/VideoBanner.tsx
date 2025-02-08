@@ -20,7 +20,7 @@ const VideoBanner = () => {
 
         {/* Título y Descripción */}
         <div className="w-full flex justify-center flex-col text-center">
-          <h2 className="my-3 text-4xl text-center text-blue-800 font-bold">
+          <h2 className="mb-3 mt-0 text-4xl text-center text-blue-800 font-bold">
             TF-Boost
           </h2>
 
@@ -29,7 +29,7 @@ const VideoBanner = () => {
           </p>
 
           {/* Video del Producto */}
-          <div className="aspect-video h-full  flex items-center justify-center w-full mt-4">
+          <div className="aspect-video h-full flex items-center justify-center w-full mt-4">
             <iframe
               className="w-full h-full rounded-lg shadow-md"
               src="https://www.youtube.com/embed/Bbm-uahhlOU?si=QPnch2kQqx0HB6B8"
