@@ -4,15 +4,13 @@ import { FaFacebook, FaSquareInstagram, FaWhatsapp } from "react-icons/fa6";
 import { IoShareSocialSharp } from "react-icons/io5";
 
 export default function Footer(){
-    const shared = ()=>{
+    const shared = async ()=>{
         if(navigator.share){
-            navigator.share({
+            await navigator.share({
                 title: 'Protección inmunitaria',
-                text: 'Mira esta página increíble!',
+                text: '¡Mira esta increíble página!',
                 url: window.location.href
             })
-            .then(() => console.log('Compartido con éxito'))
-            .catch((error) => console.log('Error al compartir', error));
         }
     }
     return (
