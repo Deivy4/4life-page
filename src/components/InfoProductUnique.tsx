@@ -11,7 +11,7 @@ const InfoProductUnique = () => {
                             <div className='w-full flex justify-center'>
                                 <button onClick={()=>{window.open("https://colombia.4life.com/davidazul/product/glutamine-prime---colombia/3870", "_blank")}} className=" md:w-[50%] text-xs sm:text-xl min-w-[150px] md:min-w-[220px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
                                     >
-                                    Ver más información
+                                    Ver más información.
                                 </button>
                             </div>
                         </div>

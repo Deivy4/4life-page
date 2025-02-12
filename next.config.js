@@ -2,7 +2,7 @@
 const nextConfig = {
     images: {
         domains: ['res.cloudinary.com'], // Permitir imágenes desde Cloudinary
-      },
+      }
 }
 
 module.exports = nextConfig
