@@ -20,4 +20,4 @@ jobs:
 
     - name: Run deployment script
       run: |
-          ssh -o StrictHostKeyChecking=no -p 5179 davish@149.50.147.80 "cd /home/davish/4life-application/4life-page && git pull origin main && npm install && npm run build && pm2 restart 4life-app"
+          ssh -o StrictHostKeyChecking=no -p 5179 davish@149.50.147.80 "cd /home/davish/4life-page/4life-page && git pull origin main && npm install && npm run build && pm2 restart 4life-page"

@@ -30,7 +30,7 @@ export default function Footer(){
                         <p className="text-[20px] w-full cursor-pointer">Whatsapp</p>
                     </a>
                     <a onClick={shared} className="flex gap-4  p-2 items-center">
-                        <IoShareSocialSharp className=' text-3xl min-w-7 rounded-full border-2 border-white p-1 text-white'/>
+                        <IoShareSocialSharp className=' cursor-pointer text-3xl min-w-7 rounded-full border-2 border-white p-1 text-white'/>
                         <p className="text-[20px] w-full cursor-pointer">Compartir</p>
                     </a>
                 </div>
