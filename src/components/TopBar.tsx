@@ -3,12 +3,14 @@ import { FaShieldVirus } from "react-icons/fa6";
 import Link from 'next/link';
 import { useState } from "react";
 import PopupPaises from "@/components/PopupPaises"
-
+import { usePaisContext } from "@/context/PaisContext";
 export default function TopBar(){
+    const { setCurrentPais, getCurrentPais } = usePaisContext();
+
     const [isPopupVisible, setIsPopupVisible] = useState(false);
-    const [paisActive, setPaisActive] = useState("Colombia");
+    let paisActive = getCurrentPais();
     const togglePais = (newPais : string)=>{
-        setPaisActive(newPais)
+        setCurrentPais({pais : newPais})
         setIsPopupVisible(false)
     }
     const togglePopup = ()=>{

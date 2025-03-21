@@ -3,6 +3,7 @@ import './globals.css'
 import TopBar from '../components/TopBar'
 import Footer from '../components/Footer'
 import {SideBarProvider} from '@/context/SideBarContext'
+import {PaisProvider} from '@/context/PaisContext'
 export const metadata: Metadata = {
   title: '4Life protección inmunitaria'
 }
@@ -31,11 +32,13 @@ export default function RootLayout({
         <meta property="og:image:height" content="630"></meta>
       </head>
       <body className=''>
-        <SideBarProvider>
-          <TopBar/>
-          {children}
-          <Footer />
-        </SideBarProvider>
+        <PaisProvider>
+          <SideBarProvider>
+            <TopBar/>
+            {children}
+            <Footer />
+          </SideBarProvider>
+        </PaisProvider>
       </body>
     </html>
   )

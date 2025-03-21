@@ -29,7 +29,7 @@ const Banner = () => {
                     <img
                         alt="Productos 4Life"
                         className="w-[45%] min-w-[300px] max-w-[750px] rounded-lg shadow-lg"
-                        src={"https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765035/photos/Imagen-Afiliados_begkqj.jpg"}
+                        src={"/png_davidAzul.png"}
                     />
                 </div>
             </div>
