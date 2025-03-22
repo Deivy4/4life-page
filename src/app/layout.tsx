@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import TopBar from '../components/TopBar'
 import Footer from '../components/Footer'
-import {SideBarProvider} from '@/context/SideBarContext'
-import {PaisProvider} from '@/context/PaisContext'
+import {AppProviders} from '@/context/AppProviders'
 export const metadata: Metadata = {
   title: '4Life protección inmunitaria'
 }
@@ -32,13 +31,11 @@ export default function RootLayout({
         <meta property="og:image:height" content="630"></meta>
       </head>
       <body className=''>
-        <PaisProvider>
-          <SideBarProvider>
+        <AppProviders>
             <TopBar/>
             {children}
             <Footer />
-          </SideBarProvider>
-        </PaisProvider>
+        </AppProviders>
       </body>
     </html>
   )

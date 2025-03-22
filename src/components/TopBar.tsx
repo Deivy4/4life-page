@@ -1,5 +1,4 @@
 "use client"
-import { FaShieldVirus } from "react-icons/fa6";
 import Link from 'next/link';
 import { useState } from "react";
 import PopupPaises from "@/components/PopupPaises"
@@ -22,7 +21,7 @@ export default function TopBar(){
                 <Link href={"/"} className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-44">
                     <img src="/images-icons/icono_test.png" className="rounded-full text-yellow-300 mb-1" style={{minHeight : "30px", maxHeight : "30px", maxWidth:'30px', minWidth:'30px'}}/>
                     <p className="text-white">4Life Protección inmunitaria</p>
-                    <div className="w-8 md:hidden">
+                    <div className="w-8 sm:hidden">
                         <img onClick={togglePopup} className=" cursor-pointer" src={`${paisActive == "Colombia" ? "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-colombia_z1l020.png" : "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-argentina_lhc5ru.png"}`} alt="" />
                     </div>
                 </Link>
