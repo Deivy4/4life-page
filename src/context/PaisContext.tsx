@@ -5,6 +5,8 @@ import { createContext, useContext, useState,ReactNode  } from "react";
 interface PaisContextContextType {
     setCurrentPais: ({pais} : {pais:string}) => void;
     getCurrentPais: () => string;
+    isColombia : () => boolean;
+    isArgentina : () => boolean;
 }
 
 const PaisContext  = createContext<PaisContextContextType|null>(null)
@@ -17,10 +19,13 @@ export const PaisProvider = ({children}: { children: ReactNode }) =>{
     }
 
     const getCurrentPais = ()=> currentPaisPage
-
+    const isColombia = ()=> getCurrentPais() == "Colombia"
+    const isArgentina = ()=> getCurrentPais() == "Argentina"
     const valuesContext: PaisContextContextType ={
         getCurrentPais,
-        setCurrentPais
+        setCurrentPais,
+        isColombia,
+        isArgentina
     }
 
     return (
