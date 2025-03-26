@@ -14,10 +14,9 @@ import { Product4life } from '@/lib/Client4life'
 
 export default function Home() {
 
+  const { getCurrentPais } = usePaisContext();
   const [products, setProducts] = useState<Product4life[]>([]); // Estado para los productos
   const [isLoading, setIsLoading] = useState<boolean>(true); // Estado para los productos
-
-  const { getCurrentPais } = usePaisContext();
 
   useEffect(()=>{
     const loadProducts = async () =>{

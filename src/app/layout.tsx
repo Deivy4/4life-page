@@ -1,14 +1,16 @@
+
 import type { Metadata } from 'next'
 import './globals.css'
 import TopBar from '../components/TopBar'
 import Footer from '../components/Footer'
 import {AppProviders} from '@/context/AppProviders'
+
 export const metadata: Metadata = {
   title: '4Life protección inmunitaria'
 }
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
@@ -32,7 +34,7 @@ export default function RootLayout({
       </head>
       <body className=''>
         <AppProviders>
-            <TopBar/>
+            <TopBar />
             {children}
             <Footer />
         </AppProviders>

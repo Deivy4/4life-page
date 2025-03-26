@@ -2,8 +2,7 @@
 import React from 'react'
 import { useSidebar } from "@/context/SideBarContext";
 export default function SideRightBar() {
-    const { isOpen, closeSideBar, contentData} = useSidebar();
-    console.log(contentData?.description);
+    const { isOpen, closeSideBar, contentDataRef : contentData} = useSidebar();
   return (
     <>
     <div
@@ -11,12 +10,17 @@ export default function SideRightBar() {
         isOpen ? 'translate-x-0' : 'translate-x-full'
       } z-50`}
     >
-      <article className='flex flex-col gap-8'>
+      <article className='flex flex-col gap-8 h-full'>
         <h2 className='text-xl border-b-2'>{contentData?.name}</h2>
-        <div className='gap-4 flex flex-col'>
-          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en dólares: {contentData?.priceDolars} </p>
-          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en pesos argentinos: {contentData?.priceArgentinos} </p>
-          <p className=' px-2 py-1 rounded-sm bg-green-500'>Link de página oficial: </p>
+        <div className='flex flex-col justify-between h-full'>
+          <div className='gap-4 flex flex-col'>
+            <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en dólares: {contentData?.priceDolars} </p>
+            <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en pesos argentinos: {contentData?.priceArgentinos} </p>
+            <p className=' px-2 py-1 rounded-sm bg-green-500'>Link de página oficial: </p>
+          </div>
+          <div>
+            <button onClick={()=> { window.open("https://wa.link/q8qr69","_blank") }} className='w-full p-2 text-lg bg-slate-600 text-white rounded-md'>Solicitar más información</button>
+          </div>
         </div>
       </article>
     </div>

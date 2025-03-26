@@ -1,5 +1,5 @@
 "use client";
-
+import { usePathname } from 'next/navigation'; // Importamos usePathname para obtener la ruta actual
 import { createContext, useContext, useState,ReactNode  } from "react";
 
 interface PaisContextContextType {
@@ -12,7 +12,12 @@ interface PaisContextContextType {
 const PaisContext  = createContext<PaisContextContextType|null>(null)
 
 export const PaisProvider = ({children}: { children: ReactNode }) =>{
-    const [currentPaisPage, setCurrentPaisPage] = useState<string>("Colombia")
+    const pathname = usePathname(); 
+    let paisPrede = "Colombia"
+    if (pathname.includes("/arg")) {
+        paisPrede = "Argentina"
+    }
+    const [currentPaisPage, setCurrentPaisPage] = useState<string>(paisPrede)
 
     const setCurrentPais = ({pais} : {pais:string})=>{
         setCurrentPaisPage(pais)
@@ -27,7 +32,7 @@ export const PaisProvider = ({children}: { children: ReactNode }) =>{
         isColombia,
         isArgentina
     }
-
+    
     return (
         <PaisContext.Provider value={valuesContext}>
             {children}
