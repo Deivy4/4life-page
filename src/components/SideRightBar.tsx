@@ -12,10 +12,10 @@ export default function SideRightBar() {
       } z-50`}
     >
       <article className='flex flex-col gap-8'>
-        <h2 className='text-xl border-b-2'>{contentData?.title}</h2>
+        <h2 className='text-xl border-b-2'>{contentData?.name}</h2>
         <div className='gap-4 flex flex-col'>
-          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en dólares: </p>
-          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en pesos argentinos: </p>
+          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en dólares: {contentData?.priceDolars} </p>
+          <p className=' px-2 py-1 rounded-sm bg-green-500'>Valor en pesos argentinos: {contentData?.priceArgentinos} </p>
           <p className=' px-2 py-1 rounded-sm bg-green-500'>Link de página oficial: </p>
         </div>
       </article>

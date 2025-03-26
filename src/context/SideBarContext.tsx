@@ -1,29 +1,25 @@
 "use client";
 
 import { createContext, useContext, useState,ReactNode  } from "react";
+import { Product4life } from '@/lib/Client4life'
 
 interface SideBarContextType {
     isOpen: boolean;
-    contentData: ContentData|null;
+    contentData: Product4life|null;
     openSideBar: () => void;
     closeSideBar: () => void;
-    sendDataForSideBar : ({}: ContentData)=> void
+    sendDataForSideBar : ({}: Product4life)=> void
 }
 
 const SideBarContext  = createContext<SideBarContextType|null>(null)
 
-type ContentData = {
-    description: string;
-    title : string
-  };
-
 export const SideBarProvider = ({children}: { children: ReactNode }) =>{
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [contentData, setContentData] = useState<ContentData|null>({description : "", title : ""})
+    const [contentData, setContentData] = useState<Product4life|null>({})
 
     const openSideBar = ()=>setIsOpen(true)
 
-    const sendDataForSideBar = (newData:ContentData)=>{
+    const sendDataForSideBar = (newData:Product4life)=>{
         setContentData(newData)
     }
     const closeSideBar = ()=> setIsOpen(false)

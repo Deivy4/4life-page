@@ -11,7 +11,7 @@ const Banner = () => {
                         <h1 className="text-4xl font-bold text-shadow-lg">
                             {"BIENESTAR Y SALUD A TU ALCANCE"}
                         </h1>
-                        <p className="text-lg leading-relaxed mb-6">
+                        <p className="text-lg leading-relaxed mb-6 text-justify">
                             {"Descubre nuestra línea exclusiva de productos 4Life, diseñados para fortalecer tu sistema inmunológico y mejorar tu calidad de vida. Vive mejor, siéntete mejor."}
                         </p>
                         

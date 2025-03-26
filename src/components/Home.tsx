@@ -7,20 +7,25 @@ import VideoBanner from '@/components/VideoBanner'
 import SideRightBar from '@/components/SideRightBar'
 import { usePaisContext } from '@/context/PaisContext'
 import { useEffect, useState } from "react"
+import { GetProducts } from '@/lib/Client4life'
+import { Paises } from '@/lib/Enums'
+import { Product4life } from '@/lib/Client4life'
+
+
 export default function Home() {
 
-  const [products, setProducts] = useState<any[]>([]); // Estado para los productos
+  const [products, setProducts] = useState<Product4life[]>([]); // Estado para los productos
   const [isLoading, setIsLoading] = useState<boolean>(true); // Estado para los productos
 
   const { getCurrentPais } = usePaisContext();
-  
+
   useEffect(()=>{
     const loadProducts = async () =>{
       if(getCurrentPais() == "Colombia"){
-        const { productsCol } = await import("@/app/data/products.json")
+        const productsCol = await GetProducts({ Pais : Paises.Colombia});
         setProducts(productsCol)
       }else{
-        const { productsArg } = await import("@/app/data/products.json")
+        const productsArg= await GetProducts({ Pais : Paises.Argentina});
         setProducts(productsArg)
       }
     }
@@ -55,9 +60,10 @@ export default function Home() {
               <div key={index} className="flex flex-col items-center w-full sm:w-1/2 lg:w-1/3">
                 <Product
                   urlImage={item.urlImage}
-                  title={item.title}
-                  contentText={item.text}
-                  urlComprar={item.urlComprar}
+                  name={item.name}
+                  description={item.description}
+                  urlProducto={item.urlProducto}
+                  id={item.id}
                 />
               </div>
             );
