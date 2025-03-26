@@ -36,7 +36,7 @@ export interface Product4life {
     id?: number;                 // Correspondiente a int en C#
     name?: string;               // Correspondiente a string en C#
     description?: string;        // Correspondiente a string en C#
-    urlProducto?: string;        // Correspondiente a string en C#
+    urlProduct?: string;        // Correspondiente a string en C#
     urlImage?: string;           // Correspondiente a string en C#
     priceDolars?: number;        // Correspondiente a decimal en C#
     priceArgentinos?: number;    // Correspondiente a decimal en C#

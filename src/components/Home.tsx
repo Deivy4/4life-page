@@ -61,7 +61,7 @@ export default function Home() {
                   urlImage={item.urlImage}
                   name={item.name}
                   description={item.description}
-                  urlProducto={item.urlProducto}
+                  urlProduct={item.urlProduct}
                   id={item.id}
                 />
               </div>
