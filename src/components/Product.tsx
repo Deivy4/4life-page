@@ -4,13 +4,13 @@ import Image from "next/image"
 import { useSidebar } from "@/context/SideBarContext"
 import { usePaisContext } from "@/context/PaisContext";
 import { GetProductWithPrice, Product4life } from '@/lib/Client4life'
-export default function Product({ urlProducto, id: idProduct, name, description, urlImage } : Product4life){
+export default function Product({ urlProduct, id: idProduct, name, description, urlImage } : Product4life){
 
     const { openSideBar, sendDataForSideBar,  isOpen } = useSidebar()
     const { isColombia, isArgentina } = usePaisContext()
     const handleClick = async ()=>{
         if(isColombia()){
-            window.open(urlProducto,"_blank")
+            window.open(urlProduct,"_blank")
             return;
         }
         if(isArgentina()){
