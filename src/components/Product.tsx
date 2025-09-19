@@ -45,7 +45,9 @@ export default function Product({
       <h2 className="mt-3 text-2xl text-center text-blue-800 font-bold">
         {name}
       </h2>
-      <p className="px-6 pb-6 pt-4 text-black text-justify">{description}</p>
+      <p className="text-lg px-6 pb-6 pt-4 text-black text-justify">
+        {description}
+      </p>
       <button
         onClick={handleClick}
         className="bg-blue-800 text-white hover:bg-blue-700 mx-6 px-3 py-2 rounded"
