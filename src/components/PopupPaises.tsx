@@ -28,7 +28,10 @@ export default function PopupPaises({
         </div>
         <div className="flex flex-col bg-white py-4 px-6 gap-3 rounded-y w-full items-center justify-center h-full">
           <button
-            onClick={() => togglePais("Colombia")}
+            onClick={(e) => {
+              e.preventDefault();
+              togglePais("Colombia");
+            }}
             className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
           >
             <h4 className="text-dynamic">Colombia</h4>

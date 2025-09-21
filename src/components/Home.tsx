@@ -13,10 +13,23 @@ import { Paises } from "@/lib/Enums";
 import { Product4life } from "@/lib/Client4life";
 
 export default function Home() {
-  const { getCurrentPais } = usePaisContext();
   const [products, setProducts] = useState<Product4life[]>([]); // Estado para los productos
   const [isLoading, setIsLoading] = useState<boolean>(true); // Estado para los productos
 
+  const { getCurrentPais } = usePaisContext();
+  const pais = getCurrentPais();
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setIsLoading(true);
+      const productsRes = await GetProducts({
+        Pais: pais === "Colombia" ? Paises.Colombia : Paises.Argentina,
+      });
+      setProducts(productsRes);
+      setIsLoading(false);
+    };
+    loadProducts();
+  }, [pais]);
   useEffect(() => {
     const loadProducts = async () => {
       if (getCurrentPais() == "Colombia") {
@@ -26,9 +39,9 @@ export default function Home() {
         const productsArg = await GetProducts({ Pais: Paises.Argentina });
         setProducts(productsArg);
       }
+      setIsLoading(false); // moverlo dentro del async
     };
     loadProducts();
-    setIsLoading(false);
   }, [getCurrentPais]);
   if (isLoading) {
     return (

@@ -18,12 +18,12 @@ export default function TopBar() {
   };
 
   const togglePopup = () => {
-    if (isPopupVisible && isPopupNavigatorVisible)
+    if (isPopupVisible && !isPopupNavigatorVisible)
       setIsPopupNavigatorVisible(false);
     setIsPopupVisible(!isPopupVisible);
   };
   const togglePopupNavigator = () => {
-    if (isPopupVisible && isPopupNavigatorVisible) setIsPopupVisible(false);
+    if (!isPopupVisible && isPopupNavigatorVisible) setIsPopupVisible(false);
     setIsPopupNavigatorVisible(!isPopupNavigatorVisible);
   };
   const urlIconNavbar = "/images-icons/icons8-menú-128.png";
@@ -36,10 +36,7 @@ export default function TopBar() {
   return (
     <div className="container mx-auto w-full justify-center items-center flex">
       <nav className="fixed top-0 z-50 flex w-full items-center justify-center bg-blue-800 px-2">
-        <Link
-          href={"/"}
-          className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-44"
-        >
+        <div className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-44">
           <img
             src="/images-icons/icono_test.png"
             className="rounded-full text-yellow-300 mb-1"
@@ -53,13 +50,16 @@ export default function TopBar() {
           <p className="text-white">4Life Protección inmunitaria</p>
           <div className="w-8 sm:hidden">
             <img
-              onClick={togglePopup}
+              onClick={(e) => {
+                e.preventDefault(); // evita que el Link navegue
+                togglePopup();
+              }}
               className="cursor-pointer"
               src={flagUrl}
               alt="Bandera"
             />
           </div>
-        </Link>
+        </div>
         <Link
           href={"/testimonios"}
           className=" hidden cursor-pointer sm:py-3 sm:flex items-center justify-center gap-4 sm:min-w-44"
@@ -69,7 +69,10 @@ export default function TopBar() {
         {/*este es el icono de navbar movi*/}
         <div className=" sm:hidden cursor-pointer w-12 ml-8">
           <img
-            onClick={togglePopupNavigator}
+            onClick={(e) => {
+              e.preventDefault(); // evita que el Link navegue
+              togglePopupNavigator();
+            }}
             className="cursor-pointer"
             src={urlIconNavbar}
             alt="navbar movil"
@@ -78,7 +81,10 @@ export default function TopBar() {
         <div className="hidden text-white sm:w-full sm:flex justify-end max-w-[800px]">
           <div className="w-8 mr-8">
             <img
-              onClick={togglePopup}
+              onClick={(e) => {
+                e.preventDefault(); // evita que el Link navegue
+                togglePopup();
+              }}
               className="cursor-pointer"
               src={flagUrl}
               alt="Bandera"

@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        slideIn: {
+          '0%': { transform: 'translate(-150%, -50%)', opacity: '0' },
+          '100%': { transform: 'translate(-0%, -50%)', opacity: '1' },
+        },
+      },
+      animation: {
+        slideIn: 'slideIn 0.5s ease forwards',
+      },
       fontSize: {
         'dynamic': 'clamp(12px, 1.5vw, 18px)', // Agregas la opción de tamaño dinámico
       },
