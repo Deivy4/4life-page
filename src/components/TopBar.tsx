@@ -36,7 +36,10 @@ export default function TopBar() {
   return (
     <div className="container mx-auto w-full justify-center items-center flex">
       <nav className="fixed top-0 z-50 flex w-full items-center justify-center bg-blue-800 px-2">
-        <div className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-44">
+        <Link
+          href={"/"}
+          className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-64"
+        >
           <img
             src="/images-icons/icono_test.png"
             className="rounded-full text-yellow-300 mb-1"
@@ -47,27 +50,27 @@ export default function TopBar() {
               minWidth: "30px",
             }}
           />
-          <p className="text-white">4Life Protección inmunitaria</p>
-          <div className="w-8 sm:hidden">
-            <img
-              onClick={(e) => {
-                e.preventDefault(); // evita que el Link navegue
-                togglePopup();
-              }}
-              className="cursor-pointer"
-              src={flagUrl}
-              alt="Bandera"
-            />
-          </div>
+          <p className="text-white ">4Life Protección inmunitaria</p>
+        </Link>
+        <div className="w-8 sm:hidden ml-4">
+          <img
+            onClick={(e) => {
+              e.preventDefault(); // evita que el Link navegue
+              togglePopup();
+            }}
+            className="cursor-pointer"
+            src={flagUrl}
+            alt="Bandera"
+          />
         </div>
         <Link
           href={"/testimonios"}
-          className=" hidden cursor-pointer sm:py-3 sm:flex items-center justify-center gap-4 sm:min-w-44"
+          className="hover:bg-white transition duration-300 ease-in-out hover:text-blue-700 p-2 rounded-sm text-white hidden cursor-pointer  sm:flex items-center justify-center gap-4 ml-28"
         >
-          <p className="text-white">Testimonios</p>
+          Testimonios
         </Link>
         {/*este es el icono de navbar movi*/}
-        <div className=" sm:hidden cursor-pointer w-12 ml-8">
+        <div className=" sm:hidden cursor-pointer w-12 ml-4">
           <img
             onClick={(e) => {
               e.preventDefault(); // evita que el Link navegue
