@@ -1,0 +1,12 @@
+{
+    "pages": [
+        {
+            "name":"Home",
+            "navigateTo": "/"
+        },
+        {
+            "name":"Testimonios",
+            "navigateTo": "/testimonios"
+        }
+    ]
+}
