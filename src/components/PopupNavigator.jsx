@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { pages } from "@/app/data/pages.json";
+import pages from "@/app/data/pages.json";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -29,7 +29,7 @@ export default function PopupNavigator({ toggleNavigator }) {
             X
           </p>
         </div>
-        <div className=" flex flex-col bg-white py-4 px-6 gap-3 rounded-y w-full items-center justify-center h-full">
+        <div className=" flex flex-col bg-white py-20 px-6 gap-3 rounded-y w-full items-center justify-center h-full">
           {/*Aquí irían los botones de navegación*/}
           {pages.map((item, index) => (
             <Link
