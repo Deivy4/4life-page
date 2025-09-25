@@ -11,6 +11,10 @@
         {
             "name":"Login",
             "navigateTo": "/login"
+        },
+        {
+            "name":"Logout",
+            "navigateTo": ""
         }
     ]
 }

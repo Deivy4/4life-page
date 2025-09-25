@@ -1,10 +1,17 @@
 import { useEffect } from "react";
-import pages from "@/app/data/pages.json";
+import { pages as allPages } from "@/app/data/pages.json";
 import Link from "next/link";
 import { useState } from "react";
-
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 export default function PopupNavigator({ toggleNavigator }) {
+  const router = useRouter();
+  const { user, logout } = useAuth();
   const [isActiveEffectSlide, setisActiveEffectSlide] = useState(false);
+
+  const filteredPages = user
+    ? allPages.filter((x) => x.name !== "Login")
+    : allPages.filter((x) => x.name !== "Logout");
   useEffect(() => {
     // Bloquea el scroll cuando el popup está visible
     document.body.style.overflow = "hidden";
@@ -16,6 +23,7 @@ export default function PopupNavigator({ toggleNavigator }) {
       document.body.style.overflow = "auto";
     };
   }, []); // Solo se ejecuta cuando el componente se monta y desmonta
+  console.log(allPages);
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
       <div
@@ -31,16 +39,34 @@ export default function PopupNavigator({ toggleNavigator }) {
         </div>
         <div className=" flex flex-col bg-white py-20 px-6 gap-3 rounded-y w-full items-center justify-center h-full">
           {/*Aquí irían los botones de navegación*/}
-          {pages.map((item, index) => (
-            <Link
-              onClick={toggleNavigator}
-              key={index}
-              className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
-              href={item.navigateTo}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {filteredPages.map((item, index) => {
+            if (item.name == "Logout") {
+              return (
+                <div
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await logout();
+                    toggleNavigator();
+                    router.replace("/");
+                  }}
+                  key={index}
+                  className="cursor-pointer h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
+                >
+                  {item.name}
+                </div>
+              );
+            }
+            return (
+              <Link
+                onClick={toggleNavigator}
+                key={index}
+                className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
+                href={item.navigateTo}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

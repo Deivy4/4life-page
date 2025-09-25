@@ -5,7 +5,6 @@ const PUBLIC_ROUTES = ["/login", "/", "/testimonios"];
 export function middleware(req) {
   const { pathname } = req.nextUrl;
   const token = req.cookies.get("supabase_token")?.value;
-  console.log("token desde mid $$$$$$$$" + token);
   // ✅ Excluir APIs, assets, imágenes y favicon
   if (
     pathname.startsWith("/api") ||
@@ -18,7 +17,6 @@ export function middleware(req) {
 
   // ✅ Permitir acceso a rutas públicas
   if (PUBLIC_ROUTES.includes(pathname)) {
-    console.log("🔑 Token:", token);
     if (pathname == "/login" && token) {
       const loginUrl = new URL("/", req.url);
       return NextResponse.redirect(loginUrl);

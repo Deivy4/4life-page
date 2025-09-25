@@ -23,7 +23,7 @@ export default function Login() {
       setErrorLogin(true);
       setTimeout(() => setErrorLogin(false), 3000);
     } else {
-      router.push("/");
+      router.replace("/");
     }
   };
 
