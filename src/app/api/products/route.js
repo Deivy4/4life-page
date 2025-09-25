@@ -44,23 +44,27 @@ export async function GET(req) {
   if (!tokenToUse) {
     return NextResponse.json({ error: "No session" }, { status: 401 });
   }
-  console.log(tokenToUse);
   // Crear cliente Supabase con access token válido
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY,
+  const response = await fetch(
+    `${process.env.SUPABASE_URL}/rest/v1/products?select=*,stock!inner(*)`,
     {
-      global: {
-        headers: {
-          Authorization: `Bearer ${tokenToUse}`,
-        },
+      headers: {
+        apikey: process.env.SUPABASE_SERVICE_KEY, // service role key aquí
+        Authorization: `Bearer ${tokenToUse}`,
+        Prefer: "return=representation",
       },
     }
   );
 
-  const { data, error } = await supabase.from("products").select("*");
-  if (error)
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  const data = await response.json();
 
-  return NextResponse.json({ data });
+  if (!response.ok) {
+    return NextResponse.json({ error: data }, { status: res.status });
+  }
+  const productsWithStock = data.map((product) => ({
+    ...product,
+    stock: product.stock[0] || null,
+  }));
+
+  return NextResponse.json({ data: productsWithStock });
 }

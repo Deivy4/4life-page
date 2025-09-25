@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['res.cloudinary.com'], // Permitir imágenes desde Cloudinary
-      }
-}
+  images: {
+    domains: ["res.cloudinary.com"], // Permitir imágenes desde Cloudinary
+  },
+  reactStrictMode: false,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
