@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { pages as allPages } from "@/app/data/pages.json";
 import Link from "next/link";
-import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+
 export default function PopupNavigator({ toggleNavigator }) {
   const router = useRouter();
   const { user, logout } = useAuth();
@@ -11,7 +12,8 @@ export default function PopupNavigator({ toggleNavigator }) {
 
   const filteredPages = user
     ? allPages.filter((x) => x.name !== "Login")
-    : allPages.filter((x) => x.name !== "Logout");
+    : allPages.filter((x) => x.name !== "Logout" && x.name !== "Stock");
+
   useEffect(() => {
     // Bloquea el scroll cuando el popup está visible
     document.body.style.overflow = "hidden";
@@ -22,35 +24,37 @@ export default function PopupNavigator({ toggleNavigator }) {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, []); // Solo se ejecuta cuando el componente se monta y desmonta
-  console.log(allPages);
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
       <div
         className={`${
           isActiveEffectSlide ? "animate-slideIn" : "hidden"
-        } flex flex-col w-[30%] h-[20%] bg-white min-w-[260px] min-h-[120px] rounded-t`}
+        } flex flex-col w-[30%] h-[35%] bg-white min-w-[260px] min-h-[00px] rounded-t`}
       >
-        <div className="text-dynamic bg-blue-800 min-h-10 w-full text-white px-4 py-3 rounded-x rounded-t flex justify-between items-center h-[20%]">
+        {/* Header */}
+        <div className="bg-blue-800 w-full text-white px-4 py-1 rounded-t flex justify-between items-center">
           <h2>Páginas</h2>
           <p onClick={toggleNavigator} className="cursor-pointer">
             X
           </p>
         </div>
-        <div className=" flex flex-col bg-white py-20 px-6 gap-3 rounded-y w-full items-center justify-center h-full">
-          {/*Aquí irían los botones de navegación*/}
+
+        {/* Contenedor scrollable */}
+        <div className="flex flex-col bg-white py-6 px-6 gap-3 w-full items-center overflow-y-auto">
           {filteredPages.map((item, index) => {
-            if (item.name == "Logout") {
+            if (item.name === "Logout") {
               return (
                 <div
+                  key={index}
                   onClick={async (e) => {
                     e.preventDefault();
                     await logout();
                     toggleNavigator();
-                    router.replace("/");
+                    router.replace("/"); // Redirige al home y reemplaza historial
                   }}
-                  key={index}
-                  className="cursor-pointer h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
+                  className="cursor-pointer min-h-8 justify-center items-center gap-8 w-[80%] flex text-xs sm:text-lg bg-blue-800 text-white hover:bg-blue-700 px-3 py-2 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
                 >
                   {item.name}
                 </div>
@@ -58,10 +62,10 @@ export default function PopupNavigator({ toggleNavigator }) {
             }
             return (
               <Link
-                onClick={toggleNavigator}
                 key={index}
-                className="h-[20%] min-h-8 justify-center items-center gap-8 w-[50%] flex text-xs sm:text-xl min-w-[230px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
+                onClick={toggleNavigator}
                 href={item.navigateTo}
+                className="min-h-8 justify-center items-center gap-8 w-[80%] flex text-xs sm:text-lg bg-blue-800 text-white hover:bg-blue-700 px-3 py-2 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105"
               >
                 {item.name}
               </Link>

@@ -15,6 +15,10 @@
         {
             "name":"Logout",
             "navigateTo": ""
+        },
+        {
+            "name":"Stock",
+            "navigateTo": "stock-products"
         }
     ]
 }
