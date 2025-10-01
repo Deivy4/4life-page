@@ -86,6 +86,7 @@ export default function Home() {
                     description={item.description}
                     urlProduct={item.urlProduct}
                     id={item.id}
+                    price={item.price}
                   />
                 </div>
               );

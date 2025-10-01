@@ -25,7 +25,7 @@ export async function GET(req, { params }) {
   }
 
   const response = await fetch(
-    `${process.env.SUPABASE_URL}/rest/v1/products?id=eq.${id}`,
+    `${process.env.SUPABASE_URL}/rest/v1/products?select=*,stock!inner(*)&id=eq.${id}`,
     {
       headers: {
         apikey: process.env.SUPABASE_SERVICE_KEY,
@@ -36,12 +36,14 @@ export async function GET(req, { params }) {
   );
 
   const data = await response.json();
-
   if (!response.ok) {
     return NextResponse.json({ error: data }, { status: response.status });
   }
-
-  return NextResponse.json({ data: data[0] ?? null });
+  const productsWithStock = data.map((product) => ({
+    ...product,
+    stock: product.stock[0] || null,
+  }));
+  return NextResponse.json({ data: productsWithStock[0] });
 }
 
 export async function DELETE(req, { params }) {

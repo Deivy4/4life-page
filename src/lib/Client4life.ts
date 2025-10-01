@@ -1,103 +1,15 @@
-import axios from "axios";
 import { Paises }from "@/lib/Enums";
-import products from "@/app/data/products.json"
-const client = axios.create({
-    baseURL : "https://api.proteccionimnunitaria.com",
-    headers : {
-        'Content-type': 'application/json'
-    }
-})
-const user:string = "user_api_4life";
-const password:string = "fawefadcsxwdrqedfgregergffdsfawefwe";
-let token:string = "";
 
 export async function GetProducts ({ Pais } : { Pais : Paises}) : Promise<Product4life[]> {
-    if(Pais == Paises.Argentina){
-        let result = products.productsArg.map((item, index)=>{
-            return {
-                id: item.id,
-                name : item.title,
-                description : item.text,
-                urlImage : item.urlImage
-            };
-        })
-        return result;
-    }
-    if(Pais == Paises.Colombia){
-        let result = products.productsCol.map((item, index)=>{
-            return {
-                id: item.id,
-                name : item.title,
-                description : item.text,
-                urlImage : item.urlImage,
-                urlProduct : item.urlComprar
-            };
-        })
-        return result;
-    }
-    return [
-        {
-            id: "1",
-            name: "testestse",
-            description: "testest",
-            urlProduct :"",
-            urlImage:"/Cal-Mag-bottle.png",
-            priceArgentinos : 38000,
-            idPais: 2
-        }
-    ];
-    // if(token == "")
-    //     token = await GetToken();
-    // client.defaults.headers["Authorization"] = `Bearer ${token}`
-
-    // let response = await client.post("/GetAllProducts", { idPais : Pais});
-    // if(response.status == 401){
-    //     token = await GetToken();
-    //     client.defaults.headers["Authorization"] = `Bearer ${token}`
-    //     response = await client.post("/GetAllProducts", { idPais : Pais});
-    // }
-    
-    // return response.data;
+        const responseArg = await fetch(`/api/products-principal/${Pais == Paises.Argentina ? 1 : 2}`)
+        return await responseArg.json()
 }
-async function GetToken(): Promise<string> {
-    let response = await client.post("/auth/login",{
-        User : user,
-        Password : password
-    });
-    return response.data.token;
-}
-
 export interface Product4life {
-    id?: string;                 // Correspondiente a int en C#
+    id?: number;                 // Correspondiente a int en C#
     name?: string;               // Correspondiente a string en C#
     description?: string;        // Correspondiente a string en C#
     urlProduct?: string;        // Correspondiente a string en C#
     urlImage?: string;           // Correspondiente a string en C#
-    priceDolars?: number;        // Correspondiente a decimal en C#
-    priceArgentinos?: number;    // Correspondiente a decimal en C#
     idPais?: number;             // Correspondiente a int en C#
-    fechaConversion?: Date;      // Correspondiente a DateTime en C#
-}
-
-export async function GetProductWithPrice({idProduct}:{idProduct : string}) : Promise<Product4life>{
-    // if(token == "")
-    //     token = await GetToken();
-    // client.defaults.headers["Authorization"] = `Bearer ${token}`
-    // let response = await client.post("/GetPrice", { idProduct : idProduct});
-    // if(response.status == 401){
-    //     token = await GetToken();
-    //     client.defaults.headers["Authorization"] = `Bearer ${token}`
-    //     response = await client.post("/GetPrice", { idProduct : idProduct});
-    // }
-    
-    // return response.data;
-    const productoSeleccionado = products.productsArg.find((x)=> x.id == idProduct);
-    return {
-        id : productoSeleccionado?.id,
-        priceArgentinos : productoSeleccionado?.PriceArgentina,
-        name : productoSeleccionado?.title,
-        description : productoSeleccionado?.text,
-        urlImage : productoSeleccionado?.urlImage,
-        urlProduct : productoSeleccionado?.urlComprar 
-    }
+    price?:number   // Correspondiente a DateTime en C#
 }

@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import { supabaseServer } from "@/lib/supabaseServer";
 
 export async function GET(req) {
@@ -46,7 +45,7 @@ export async function GET(req) {
   }
   // Crear cliente Supabase con access token válido
   const response = await fetch(
-    `${process.env.SUPABASE_URL}/rest/v1/products?select=*,stock!inner(*)`,
+    `${process.env.SUPABASE_URL}/rest/v1/products?select=*,stock!left(*)`,
     {
       headers: {
         apikey: process.env.SUPABASE_SERVICE_KEY, // service role key aquí
