@@ -15,10 +15,14 @@ export default function Product(props) {
 
   const handleClick = () => {
     if (isColombia()) {
+      console.log("Clicked");
       const urlProductStoreAfiliado = urlProduct.replace(
         "$$codigoAfiliado$$",
         GetAfiliado().numeroAfiliado
       );
+
+      console.log(urlProductStoreAfiliado);
+
       window.open(urlProductStoreAfiliado, "_blank");
       return;
     }
