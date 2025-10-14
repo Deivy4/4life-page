@@ -13,7 +13,9 @@ export async function GET(req, { params }) {
         apikey: process.env.SUPABASE_ANON_KEY, // o SERVICE_KEY
         Authorization: `Bearer ${tokenToUse}`,
         Prefer: "return=representation",
+        "Cache-Control": "no-cache",
       },
+      cache: "no-store",
     }
   );
 
