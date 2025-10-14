@@ -2,19 +2,24 @@
 
 import Image from "next/image";
 import { useSidebar } from "@/context/SideBarContext";
+import { useAfiliados } from "@/context/AfiliadosContext";
 import { usePaisContext } from "@/context/PaisContext";
 import { useCart } from "react-use-cart";
 
 export default function Product(props) {
   const { urlProduct, id, name, description, urlImage, price } = props;
-
+  const { GetAfiliado } = useAfiliados();
   const { addItem } = useCart();
   const { openSideBar, sendDataForSideBar, isOpen } = useSidebar();
   const { isColombia, isArgentina } = usePaisContext();
 
   const handleClick = () => {
     if (isColombia()) {
-      window.open(urlProduct, "_blank");
+      const urlProductStoreAfiliado = urlProduct.replace(
+        "$$codigoAfiliado$$",
+        GetAfiliado().numeroAfiliado
+      );
+      window.open(urlProductStoreAfiliado, "_blank");
       return;
     }
     if (isArgentina()) {

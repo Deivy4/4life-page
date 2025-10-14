@@ -1,7 +1,8 @@
 "use client"; // components/Banner.tsx
 import React from "react";
-
+import { useAfiliados } from "@/context/AfiliadosContext";
 const InfoProductUnique = () => {
+  const { GetAfiliado } = useAfiliados();
   return (
     <div className="container w-full text-gray-700 flex justify-stretch items-center sm:my-10">
       <div className="flex items-center justify-stretch flex-row py-10 md:px-16 px-4 gap-4 sm:gap-0 w-full">
@@ -20,7 +21,9 @@ const InfoProductUnique = () => {
               <button
                 onClick={() => {
                   window.open(
-                    "https://colombia.4life.com/davidazul/product/glutamine-prime---colombia/3870",
+                    `https://colombia.4life.com/${
+                      GetAfiliado().numeroAfiliado
+                    }/product/glutamine-prime---colombia/3870`,
                     "_blank"
                   );
                 }}
