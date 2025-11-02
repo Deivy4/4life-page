@@ -37,7 +37,9 @@ export default function Footer() {
           <a
             target="_blank"
             href={`${
-              isColombia() ? "https://w.app/kq8v54" : "https://wa.link/q8qr69"
+              isColombia()
+                ? "https://api.whatsapp.com/send?phone=+573041054830&text=%C2%A1Hola!%20%F0%9F%91%8B%20Estoy%20interesado(a)%20en%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20de%204Life.%20%F0%9F%92%8A%E2%9C%A8%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20las%20opciones%20disponibles,%20beneficios%20y%20precios.%20%C2%BFMe%20podr%C3%ADas%20ayudar?%20%F0%9F%99%8F%20%C2%A1Gracias!"
+                : "https://wa.link/q8qr69"
             }`}
             className="flex gap-4  p-2 items-center w-min"
           >
