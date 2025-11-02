@@ -73,7 +73,7 @@ export default function Home() {
           Productos de 4life
         </h2>
         <div className="justify-center text-white container mb-4">
-          <div className="flex flex-wrap justify-center">
+          <div className="grid gap-10 lg:grid-cols-3 md:grid-cols-2 place-items-center">
             {products.map((item, index) => {
               return (
                 <div

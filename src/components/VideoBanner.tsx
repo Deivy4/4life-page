@@ -2,52 +2,47 @@
 
 const VideoBanner = () => {
   return (
-    <div className="container w-full text-gray-700 flex justify-stretch items-center sm:my-10">
-      <div className="sm:px-4 flex flex-col sm:flex-row items-center justify-stretch py-10 md:pr-0 gap-4 sm:gap-0 w-full">
-        {/* Imagen del Producto */}
-        <div className="w-[70%] sm:w-[50%] h-full flex justify-center pt-3">
-          <img
-            className="w-full min-w-[190px] sm:min-w-[300px] max-w-[600px] rounded"
-            src="https://media2.4life.com/products/TF_Boost_Secondary_1.jpg?width=1000&mode=crop&quality=80"
-            alt="TF-Boost"
-          />
-        </div>
+    <section className="w-full bg-gradient-to-b from-gray-50 to-gray-100 py-20">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12 px-6 md:px-16">
+        {/* Texto y video */}
+        <div className="flex-1 flex flex-col justify-center gap-6 animate-fadeInLeft">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-blue-800 text-center md:text-left">
+            TF-Boost
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed text-center md:text-left">
+            El exclusivo producto de 4Life con 1.000 mg de vitamina C. Disfruta
+            de esta bebida en polvo con un exquisito sabor a naranja, perfecta
+            para fortalecer tu bienestar. Viene en prácticos sobres, ideales
+            para llevar y consumir en cualquier momento y lugar.
+          </p>
 
-        {/* Descripción del Producto */}
-        <div className="w-full px-4 sm:w-[70%] sm:min-w-[360px] h-full max-h-[600px] flex justify-center">
-          <div className="w-full sm:w-[90%] gap-6 flex flex-col">
-            {/* Título y Descripción */}
-            <div className="w-full flex justify-center flex-col text-center">
-              <h2 className="mb-3 mt-0 text-4xl text-center text-blue-800 font-bold">
-                TF-Boost
-              </h2>
-
-              <p className="text-base">
-                El exclusivo producto de 4Life con 1.000 mg de vitamina C.
-                Disfruta de esta conveniente bebida en polvo con un exquisito
-                sabor a naranja, perfecta para fortalecer tu bienestar. Viene en
-                prácticos sobres, ideales para llevar y consumir en cualquier
-                momento y lugar. ¡Anímate a probarla y disfruta su increíble
-                sabor!
-              </p>
-
-              {/* Video del Producto */}
-              <div className="aspect-video h-full flex items-center justify-center w-full mt-4">
-                <iframe
-                  className="w-full h-full rounded-lg shadow-md"
-                  src="https://www.youtube.com/embed/Bbm-uahhlOU?si=QPnch2kQqx0HB6B8"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              </div>
+          {/* Video */}
+          <div className="w-full flex justify-center md:justify-start mt-6 animate-fadeInUp">
+            <div className="w-full max-w-lg aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-200 transition-transform duration-500 hover:scale-105">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/Bbm-uahhlOU?si=QPnch2kQqx0HB6B8"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
+
+        {/* Imagen del producto */}
+        <div className="flex-1 flex justify-center md:justify-end animate-fadeInRight">
+          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-8 flex justify-center items-center transition-transform duration-500 hover:scale-105">
+            <img
+              className="w-full max-w-[400px] rounded-2xl"
+              src="https://media2.4life.com/products/TF_Boost_Secondary_1.jpg?width=1000&mode=crop&quality=80"
+              alt="TF-Boost"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

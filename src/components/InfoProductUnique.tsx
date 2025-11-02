@@ -1,50 +1,53 @@
 "use client"; // components/Banner.tsx
 import React from "react";
 import { useAfiliados } from "@/context/AfiliadosContext";
+
 const InfoProductUnique = () => {
   const { GetAfiliado } = useAfiliados();
+
   return (
-    <div className="container w-full text-gray-700 flex justify-stretch items-center sm:my-10">
-      <div className="flex items-center justify-stretch flex-row py-10 md:px-16 px-4 gap-4 sm:gap-0 w-full">
-        <div className="w-[50%] sm:w-[70%] h-full flex">
-          <div className="w-full sm:w-[80%] gap-6 flex flex-col">
-            <h2 className="text-center text-4xl text-[#e7a268] font-bold">
-              Glutamine Prime
-            </h2>
-            <p className="text-xs sm:text-2xl text-center">
-              Complementa tu dieta y promueve el bienestar general de tu
-              organismo con este suplemento dietario exclusivo de 4Life a base
-              de L-Glutamina y otros aminoácidos que complementan tu dieta y
-              promueven el bienestar de tu organismo
-            </p>
-            <div className="w-full flex justify-center">
-              <button
-                onClick={() => {
-                  window.open(
-                    `https://colombia.4life.com/${
-                      GetAfiliado().numeroAfiliado
-                    }/product/glutamine-prime---colombia/3870`,
-                    "_blank"
-                  );
-                }}
-                className=" md:w-[50%] text-xs sm:text-xl min-w-[150px] md:min-w-[220px] bg-blue-800 text-white hover:bg-blue-700 px-3 py-1 rounded-lg font-bold shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-500 hover:to-blue-600"
-              >
-                Ver más información.
-              </button>
-            </div>
+    <section className="w-full bg-gray-50 py-16 sm:py-24">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 px-6 md:px-16">
+        {/* Texto del producto */}
+        <div className="flex-1 flex flex-col justify-center gap-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#e7a268] text-center md:text-left">
+            Glutamine Prime
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 text-center md:text-left leading-relaxed">
+            Complementa tu dieta y promueve el bienestar general de tu organismo
+            con este suplemento dietario exclusivo de 4Life a base de
+            L-Glutamina y otros aminoácidos que complementan tu dieta y
+            promueven el bienestar de tu organismo.
+          </p>
+          <div className="flex justify-center md:justify-start">
+            <button
+              onClick={() => {
+                window.open(
+                  `https://colombia.4life.com/${
+                    GetAfiliado().numeroAfiliado
+                  }/product/glutamine-prime---colombia/3870`,
+                  "_blank"
+                );
+              }}
+              className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-blue-700 hover:scale-105"
+            >
+              Ver más información
+            </button>
           </div>
         </div>
-        <div className="w-[45%] sm:w-[50%] h-full flex justify-center pt-3 ">
-          <img
-            alt="Productos 4Life"
-            className="w-[90%] min-w-[165px] sm:min-w-[300px] md:min-w-[400px] rounded"
-            src={
-              "https://media2.4life.com/products/Publicitaria_Glutamine_1000x1000.png?width=1000&mode=crop&quality=80"
-            }
-          />
+
+        {/* Imagen del producto */}
+        <div className="flex-1 flex justify-center md:justify-end">
+          <div className="bg-white rounded-xl shadow-xl p-4 md:p-6 flex justify-center items-center">
+            <img
+              src="https://media2.4life.com/products/Publicitaria_Glutamine_1000x1000.png?width=1000&mode=crop&quality=80"
+              alt="Producto 4Life"
+              className="w-full max-w-[400px] rounded-lg"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
