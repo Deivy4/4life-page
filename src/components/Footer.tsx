@@ -1,8 +1,10 @@
 "use client";
 import { FaFacebook, FaSquareInstagram, FaWhatsapp } from "react-icons/fa6";
 import { IoShareSocialSharp } from "react-icons/io5";
+import { usePaisContext } from "@/context/PaisContext";
 
 export default function Footer() {
+  const { isColombia } = usePaisContext();
   const shared = async () => {
     if (navigator.share) {
       await navigator.share({
@@ -34,7 +36,9 @@ export default function Footer() {
           </a>
           <a
             target="_blank"
-            href="https://wa.link/q8qr69"
+            href={`${
+              isColombia() ? "https://w.app/kq8v54" : "https://wa.link/q8qr69"
+            }`}
             className="flex gap-4  p-2 items-center w-min"
           >
             <FaWhatsapp className=" text-2xl min-w-5 text-green-500 cursor-pointer" />
