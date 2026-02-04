@@ -18,19 +18,16 @@ export async function POST(request: NextRequest) {
     new SupabaseMPPreferenceRepository(),
     new MercadoPagoPaymentServiceImpl(),
     async (event) => {
-      setImmediate(async () => {
-        let notificacion = new BrevoEmailNotificationService();
-        await notificacion.sendMessage(`NOVEDAD DE PAGO:
-          nombre de persona que paga: ${event.nombre},
-          telefono: ${event.telefono},
-          email: ${event.email},
-          ciudad: ${event.ciudad},
-          direccion: ${event.direccion},
-          producto comprado (ID): ${event.product_id},
-          total pagado: ${event.total_pagado}
-          `);
-        console.log("NOVEDAD DE PAGO:", event)
-      });
+      let notificacion = new BrevoEmailNotificationService();
+      notificacion.sendMessage(`NOVEDAD DE PAGO:
+        nombre de persona que paga: ${event.nombre},
+        telefono: ${event.telefono},
+        email: ${event.email},
+        ciudad: ${event.ciudad},
+        direccion: ${event.direccion},
+        producto comprado (ID): ${event.product_id},
+        total pagado: ${event.total_pagado}
+        `);
     }
   )
 
