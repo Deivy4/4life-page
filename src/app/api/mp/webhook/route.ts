@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     new MercadoPagoPaymentServiceImpl(),
     async (event) => {
       let notificacion = new BrevoEmailNotificationService();
-      notificacion.sendMessage(`NOVEDAD DE PAGO:
+      await notificacion.sendMessage(`NOVEDAD DE PAGO:
         nombre de persona que paga: ${event.nombre},
         telefono: ${event.telefono},
         email: ${event.email},
