@@ -1,9 +1,10 @@
+import { BrevoEmailNotificationService } from '@/infrastructure/brevo/BrevoEmailService';
 import { NextResponse, NextRequest } from 'next/server';
-import TelegramBot from 'node-telegram-bot-api';
-const chatidDavish = process.env.CHAT_ID_DAVISH || "";
-const secretTelegram = process.env.TELEGRAM_BOT_TOKEN || "";
+// import TelegramBot from 'node-telegram-bot-api';
+// const chatidDavish = process.env.CHAT_ID_DAVISH || "";
+// const secretTelegram = process.env.TELEGRAM_BOT_TOKEN || "";
 
-const bot = new TelegramBot(secretTelegram, { polling: false });
+// const bot = new TelegramBot(secretTelegram, { polling: false });
 
 export async function POST(request: NextRequest){
     const origin = request.headers.get('origin');
@@ -15,7 +16,8 @@ export async function POST(request: NextRequest){
         }); 
     }
     const body = await request.json()
-    await bot.sendMessage(chatidDavish, body.message);
+    let sendNotification = new BrevoEmailNotificationService();
+    await sendNotification.sendMessage(body.message);
     return new NextResponse(null, {
         status: 200,
     });

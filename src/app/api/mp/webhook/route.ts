@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { SupabaseMPPreferenceRepository } from "@/infrastructure/repositories/SupabaseMPPreferenceRepository"
 import { MercadoPagoPaymentServiceImpl } from "@/infrastructure/mercado-pago/MercadoPagoPaymentService"
 import { HandleMercadoPagoPayment } from "@/application/use-cases/HandleMercadoPagoPayment"
-import { TelegramNotificationService } from '@/infrastructure/telegram/TelegramNotificationService'
+import { BrevoEmailNotificationService } from '@/infrastructure/brevo/BrevoEmailService'
 
 export async function POST(request: NextRequest) {
   const data = await request.json()
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     new MercadoPagoPaymentServiceImpl(),
     async (event) => {
       setImmediate(async () => {
-        let notificacion = new TelegramNotificationService();
+        let notificacion = new BrevoEmailNotificationService();
         await notificacion.sendMessage(`NOVEDAD DE PAGO:
           nombre de persona que paga: ${event.nombre},
           telefono: ${event.telefono},
