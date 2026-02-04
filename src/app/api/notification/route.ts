@@ -8,7 +8,11 @@ import { NextResponse, NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest){
     const origin = request.headers.get('origin');
-    const allowedOrigins = ["http://localhost:3000"];
+    const allowedOrigins = [
+        "http://localhost:3000",
+        "https://4life-page.vercel.app"
+    ];
+
 
     if (!origin || !allowedOrigins.includes(origin)) {
         return new NextResponse(null, {
