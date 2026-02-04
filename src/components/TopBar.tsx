@@ -1,152 +1,67 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
-import PopupPaises from "@/components/PopupPaises";
 import PopupNavigator from "@/components/PopupNavigator";
-import { usePaisContext } from "@/context/PaisContext";
-import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
+
 export default function TopBar() {
-  const router = useRouter();
-  const { user, logout, loading } = useAuth(); // 👈 incluimos loading
-  const { setCurrentPais, getCurrentPais } = usePaisContext();
-
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isPopupNavigatorVisible, setIsPopupNavigatorVisible] = useState(false);
-  let paisActive = getCurrentPais();
-
-  const togglePais = (newPais: string) => {
-    setCurrentPais({ pais: newPais });
-    setIsPopupVisible(false);
-  };
-
-  const togglePopup = () => {
-    if (isPopupVisible && !isPopupNavigatorVisible) {
-      setIsPopupNavigatorVisible(false);
-    }
-    setIsPopupVisible(!isPopupVisible);
-  };
 
   const togglePopupNavigator = () => {
-    if (!isPopupVisible && isPopupNavigatorVisible) {
-      setIsPopupVisible(false);
-    }
     setIsPopupNavigatorVisible(!isPopupNavigatorVisible);
   };
 
   const urlIconNavbar = "/images-icons/icons8-menú-128.png";
-  const flagUrl =
-    paisActive === "Colombia"
-      ? "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-colombia_z1l020.png"
-      : "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764991/photos/bandera-argentina_lhc5ru.png";
 
   return (
     <>
-      <div className="container mx-auto w-full justify-center items-center flex">
-        <nav className="fixed top-0 z-50 flex w-full items-center justify-center bg-blue-800 px-1">
+      <nav className="fixed top-0 z-50 w-full bg-gradient-to-r from-indigo-900 via-blue-800 to-cyan-700 shadow-lg backdrop-blur-sm">
+        <div className="container mx-auto flex items-center justify-between py-3 px-4">
           {/* LOGO */}
-          <Link
-            href={"/"}
-            className="cursor-pointer py-3 flex items-center justify-center gap-4 min-w-64"
-          >
+          <Link href="/" className="flex items-center gap-3 cursor-pointer">
             <img
-              src="/images-icons/icono_test.png"
-              className="rounded-full text-yellow-300 mb-1"
-              style={{
-                minHeight: "30px",
-                maxHeight: "30px",
-                maxWidth: "30px",
-                minWidth: "30px",
-              }}
+              src="/images-icons/logo_Sb.png"
+              alt="Logo"
+              className="h-10 w-10 rounded-full border-2 border-white shadow-sm bg-white"
             />
-            <p className="text-white">4Life Protección inmunitaria</p>
+            <span className="text-white font-semibold text-lg drop-shadow-md">
+              Protección inmunitaria
+            </span>
           </Link>
-
-          {/* BANDERA MOBILE */}
-          <div className="w-8 sm:hidden lg:ml-3">
-            <img
-              onClick={(e) => {
-                e.preventDefault();
-                togglePopup();
-              }}
-              className="cursor-pointer"
-              src={flagUrl}
-              alt="Bandera"
-            />
-          </div>
-
-          {/* LINKS DESKTOP */}
-          <Link
-            href={"/testimonios"}
-            className="hover:bg-white transition duration-300 ease-in-out hover:text-blue-700 p-2 rounded-sm text-white hidden cursor-pointer sm:flex items-center justify-center gap-4 lg:ml-28"
-          >
-            Testimonios
-          </Link>
-
-          {/* 👇 solo renderizar después de loading */}
-          {!loading && user && (
-            <Link
-              href={"/stock-products"}
-              className="hover:bg-white transition duration-300 ease-in-out hover:text-blue-700 p-2 rounded-sm text-white hidden cursor-pointer sm:flex items-center justify-center gap-4 lg:ml-16"
-            >
-              Stock
-            </Link>
-          )}
-          {!loading && !user && (
-            <Link
-              href={"/login"}
-              className="hover:bg-white transition duration-300 ease-in-out hover:text-blue-700 p-2 rounded-sm text-white hidden cursor-pointer sm:flex items-center justify-center gap-4 lg:ml-16"
-            >
-              Login
-            </Link>
-          )}
-          {!loading && user && (
-            <div
-              onClick={async (e) => {
-                e.preventDefault();
-                await logout();
-                router.replace("/");
-              }}
-              className="hover:bg-white transition duration-300 ease-in-out hover:text-blue-700 p-2 rounded-sm text-white hidden cursor-pointer sm:flex items-center justify-center gap-4 lg:ml-16"
-            >
-              Logout
+          <div className="hidden sm:flex items-center gap-6">
+            {/* LINKS DESKTOP */}
+            <div className="">
+              <Link
+                href="/contacto"
+                className="text-white hover:text-cyan-300 transition-colors duration-300 font-medium"
+              >
+                Contacto
+              </Link>
             </div>
-          )}
+            {/* LINKS DESKTOP */}
+            <div className="">
+              <Link
+                href="/testimonios"
+                className="text-white hover:text-cyan-300 transition-colors duration-300 font-medium"
+              >
+                Testimonios
+              </Link>
+            </div>
+          </div>
 
           {/* ICONO NAVBAR MOBILE */}
-          <div className="sm:hidden cursor-pointer w-12 ml-4">
+          <div className="sm:hidden flex items-center">
             <img
-              onClick={(e) => {
-                e.preventDefault();
-                togglePopupNavigator();
-              }}
-              className="cursor-pointer"
               src={urlIconNavbar}
-              alt="navbar movil"
+              alt="Menu"
+              className="h-8 w-8 cursor-pointer"
+              onClick={togglePopupNavigator}
             />
           </div>
+        </div>
+      </nav>
 
-          {/* BANDERA DESKTOP */}
-          <div className="hidden text-white sm:w-full sm:flex justify-end max-w-[800px]">
-            <div className="w-8 mr-8">
-              <img
-                onClick={(e) => {
-                  e.preventDefault();
-                  togglePopup();
-                }}
-                className="cursor-pointer"
-                src={flagUrl}
-                alt="Bandera"
-              />
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      {/* Render diferido de popups */}
-      {isPopupVisible && (
-        <PopupPaises togglePopup={togglePopup} togglePais={togglePais} />
-      )}
+      {/* POPUP NAVIGATOR MOBILE */}
       {isPopupNavigatorVisible && (
         <PopupNavigator toggleNavigator={togglePopupNavigator} />
       )}

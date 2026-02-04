@@ -1,0 +1,40 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { SupabaseMPPreferenceRepository } from "@/infrastructure/repositories/SupabaseMPPreferenceRepository"
+import { MercadoPagoPaymentServiceImpl } from "@/infrastructure/mercado-pago/MercadoPagoPaymentService"
+import { HandleMercadoPagoPayment } from "@/application/use-cases/HandleMercadoPagoPayment"
+import { TelegramNotificationService } from '@/infrastructure/telegram/TelegramNotificationService'
+
+export async function POST(request: NextRequest) {
+  const data = await request.json()
+  console.log("webhook recibido", data)
+
+  if (data.type !== "payment") {
+    return new Response("ignored")
+  }
+
+  const paymentId = data.data.id
+
+  const useCase = new HandleMercadoPagoPayment(
+    new SupabaseMPPreferenceRepository(),
+    new MercadoPagoPaymentServiceImpl(),
+    async (event) => {
+      setImmediate(async () => {
+        let notificacion = new TelegramNotificationService();
+        await notificacion.sendMessage(`NOVEDAD DE PAGO:
+          nombre de persona que paga: ${event.nombre},
+          telefono: ${event.telefono},
+          email: ${event.email},
+          ciudad: ${event.ciudad},
+          direccion: ${event.direccion},
+          producto comprado (ID): ${event.product_id},
+          total pagado: ${event.total_pagado}
+          `);
+        console.log("NOVEDAD DE PAGO:", event)
+      });
+    }
+  )
+
+  await useCase.execute(paymentId)
+
+  return new Response("ok")
+}

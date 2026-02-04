@@ -1,39 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useSidebar } from "@/context/SideBarContext";
-import { useAfiliados } from "@/context/AfiliadosContext";
-import { usePaisContext } from "@/context/PaisContext";
-import { useCart } from "react-use-cart";
-
+import { useRouter } from "next/navigation";
 export default function Product(props) {
-  const { urlProduct, id, name, description, urlImage, price } = props;
-  const { GetAfiliado } = useAfiliados();
-  const { addItem } = useCart();
-  const { openSideBar, sendDataForSideBar, isOpen } = useSidebar();
-  const { isColombia, isArgentina } = usePaisContext();
+  const { name, description, urlImage, id } = props;
 
+  const router = useRouter();
   const handleClick = () => {
-    if (isColombia()) {
-      const urlProductStoreAfiliado = urlProduct.replace(
-        "$$codigoAfiliado$$",
-        GetAfiliado().numeroAfiliado
-      );
-      window.open(urlProductStoreAfiliado, "_blank");
-      return;
-    }
-    if (isArgentina()) {
-      addItem({ id: id, name: name, price: price, urlImage });
-      openSideBar();
-      sendDataForSideBar(props); // envia toda la info del producto
-    }
+    router.push(`/producto/${id}`);
   };
 
   return (
     <div
-      className={`${
-        isOpen ? "opacity-50" : "opacity-100"
-      } group w-[280px] rounded-xl p-4 bg-gradient-to-b from-white to-blue-50 shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer`}
+      className={`opacity-100 group w-[280px] rounded-xl p-4 bg-gradient-to-b from-white to-blue-50 shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer`}
     >
       <div className="flex justify-center items-center overflow-hidden rounded-xl">
         <Image

@@ -1,0 +1,208 @@
+"use client";
+
+import { useState } from "react";
+
+export default function Page() {
+    const [contactInfo, setContactInfo] = useState({
+        email: "",
+        message: "",
+        name: "",
+        telefono : ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setContactInfo(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if(contactInfo.name.trim() === "" || contactInfo.email.trim() === "") {
+            return;
+        }
+        const message = `Nombre: ${contactInfo.name}\nEmail: ${contactInfo.email}\nTeléfono: ${contactInfo.telefono}\nMensaje: ${contactInfo.message}`
+        const response = await fetch("/api/notification", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({message}),
+        });
+        if (response.ok) {
+            setContactInfo({
+                name: "",
+                email: "",
+                message: "",
+                telefono:""
+            });
+        }
+    }
+  return (
+    <main className="contact-page">
+      <section className="hero">
+        <h1>Contacto</h1>
+        <p>
+          ¿Tenés alguna consulta o querés más información?
+          <br />
+          Completá el formulario y te respondemos a la brevedad.
+        </p>
+      </section>
+
+      <section className="content">
+        <form className="form">
+          <div className="field">
+            <label>Nombre</label>
+            <input onChange={handleChange} value={contactInfo.name} type="text" placeholder="Tu nombre" name="name"/>
+          </div>
+
+          <div className="field">
+            <label>Email</label>
+            <input value={contactInfo.email} type="email" placeholder="correo@ejemplo.com" onChange={handleChange} name="email" />
+          </div>
+
+          <div className="field">
+            <label>Teléfono</label>
+            <input value={contactInfo.telefono} type="tel" placeholder="Tu número de teléfono" onChange={handleChange} name="telefono" />
+          </div>
+
+          <div className="field">
+            <label>Mensaje</label>
+            <textarea value={contactInfo.message} rows={5} placeholder="Escribí tu mensaje..." onChange={handleChange} name="message" />
+          </div>
+
+          <button onClick={handleSubmit} type="submit">Enviar mensaje</button>
+        </form>
+
+        <aside className="info">
+          <h3>Información de contacto</h3>
+
+          <p>
+            <strong>Email:</strong>
+            <br />
+            davidazul.4life@gmail.com
+          </p>
+
+          <p>
+            <strong>WhatsApp:</strong>
+            <br />
+            +54 9 2616 65-7453
+          </p>
+
+          <p>
+            <strong>Ubicación:</strong>
+            <br />
+            Argentina
+          </p>
+        </aside>
+      </section>
+
+      <style jsx>{`
+        .contact-page {
+          min-height: 100vh;
+          background: #f7f7f7;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 4rem 1rem;
+          background: linear-gradient(135deg, #2e7d32, #66bb6a);
+          color: white;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+
+        .content {
+          max-width: 1100px;
+          margin: -3rem auto 0;
+          padding: 2rem;
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: 2rem;
+        }
+
+        .form {
+          background: white;
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .field {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1.2rem;
+        }
+
+        .field label {
+          font-weight: 600;
+          margin-bottom: 0.3rem;
+        }
+
+        .field input,
+        .field textarea {
+          padding: 0.7rem;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 1rem;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
+          outline: none;
+          border-color: #2e7d32;
+        }
+
+        button {
+          width: 100%;
+          padding: 0.8rem;
+          border: none;
+          border-radius: 8px;
+          background: #2e7d32;
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+
+        button:hover {
+          background: #256428;
+        }
+
+        .info {
+          background: white;
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .info h3 {
+          margin-bottom: 1rem;
+          color: #2e7d32;
+        }
+
+        .info p {
+          margin-bottom: 1rem;
+          line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+          .content {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+    </main>
+  );
+}

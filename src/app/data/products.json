@@ -1,96 +1,50 @@
-{
-  "productsArg": [
-    {
-      "id": "arg-1",
-      "urlImage": "/Cal-Mag-bottle.png",
-      "text": "Respaldo nutricional completo para el metabolismo de los huesos y la salud del sistema estructural con varias formas de calcio, magnesio, minerales quilatados patentados y otros nutrientes de respaldo.",
-      "title": "Cal-Mag Complex",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-bcv/2459",
-      "PriceArgentina": 38000
-    },
-    {
-      "id": "arg-2",
-      "urlImage": "/New-Conditioner-Product.jpg",
-      "text": "Acondicionador libre de siliconas, que ayuda a equilibrar la humedad y es adecuado para todo tipo de cabello. Contiene vitaminas esenciales, proteínas, aminoácidos, antioxidantes e ingredientes nutritivos naturales derivados de plantas y frutas.",
-      "title": "Acondicionador",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/4life-tf-boost/3550",
-      "PriceArgentina": 38000
-    },
-    {
-      "id": "arg-3",
-      "urlImage": "/enummi_Toothpaste.jpg",
-      "text": "Esta delicada fórmula libre de fluoruro limpia los dientes sin agentes abrasivos fuertes y refresca el aliento con un delicioso sabor a menta. enummi Pasta Dental contiene 4Life Transfer Factor™ y un postbiótico patentado para respaldar la inmunidad oral y el microbioma oral. ¡Usa a diario enummi Pasta dental para lucir tu mejor sonrisa todo el día, todos los días!",
-      "title": "Enummi Pasta Dental con 4Life Transfer Factor™ y Postbiótico",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-plus-tri-factor/89",
-      "PriceArgentina": 38000
-    },
-    {
-      "id": "arg-4",
-      "urlImage": "/US_LifeC.jpg",
-      "text": "Fórmula que combina siete formas, ligeramente diferentes y complejas, de vitamina C para ayudar a aumentar la absorción de nutrientes y maximizar sus beneficios en el cuerpo.",
-      "title": "Life C® Masticable",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-tri-factor/95",
-      "PriceArgentina": 38000
-    },
-    {
-      "id": "arg-5",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/Renuvo_adv4si.png",
-      "text": "¡El suplemento ideal de 4Life para sentirte renovado! Contiene todos los beneficios de la exclusiva fórmula 4Life Transfer Factor acompañado de zinc, que ayuda a fortalecer las defensas del organismo, vitamina D que contribuye al funcionamiento normal del sistema inmune, entre otros ingredientes de origen natural que promueven el bienestar general de tu cuerpo.",
-      "title": "4Life Transfer Factor Renuvo",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-renuvo-each/882",
-      "PriceArgentina": 38000
-    },
-    {
-      "id": "arg-6",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764996/photos/Belle_Vie_axxqu8.png",
-      "text": "4Life Transfer Factor Belle Vie, con mezclas exclusivas de antioxidantes y nutrientes, ofrece beneficios específicos para la salud femenina.",
-      "title": "4Life Transfer Factor Belle Vie",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-belle-vie/75",
-      "PriceArgentina": 38000
-    }
-  ],
-  "productsCol": [
-    {
-      "id": "col-1",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764992/photos/BCV_luqgxm.png",
-      "text": "Disfruta los beneficios de este producto, respaldado por la calidad nutricional de 4Life y enriquecido con Tiamina (vitamina B1), un nutriente que puede favorecer la salud del corazón. Además, su fórmula incluye otros componentes que apoyan el bienestar integral del organismo.",
-      "title": "Transfer Factor BCV+",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-bcv/2459"
-    },
-    {
-      "id": "col-2",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/TF_Boost_a39dif.png",
-      "text": "4Life Transfer Factor Boost, con sabor a naranja, vitamina C, zinc, vitamina D y electrolitos, fortalece el sistema inmunológico, brinda antioxidantes y promueve hidratación.",
-      "title": "4Life Transfer Factor Boost",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/4life-tf-boost/3550"
-    },
-    {
-      "id": "col-3",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/Transfer_Factor_Plus_fhjwde.png",
-      "text": "4Life Transfer Factor Plus combina calostro, yema de huevo, hongos shiitake y maitake, cordyceps y otros nutrientes para reforzar el sistema inmunológico.",
-      "title": "4Life Transfer Factor Plus",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-plus-tri-factor/89"
-    },
-    {
-      "id": "col-4",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/Transfer_Factor_Regular_gr1gw0.png",
-      "text": "4Life Transfer Factor Tri-Factor Formula contiene ingredientes del sistema inmunitario que elevan los estándares de respaldo inmunológico.",
-      "title": "Transfer Tri-Factor Formula",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-tri-factor/95"
-    },
-    {
-      "id": "col-5",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/Renuvo_adv4si.png",
-      "text": "¡El suplemento ideal de 4Life para sentirte renovado! Contiene todos los beneficios de la exclusiva fórmula 4Life Transfer Factor acompañado de zinc, que ayuda a fortalecer las defensas del organismo, vitamina D que contribuye al funcionamiento normal del sistema inmune, entre otros ingredientes de origen natural que promueven el bienestar general de tu cuerpo.",
-      "title": "4Life Transfer Factor Renuvo",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-renuvo-each/882"
-    },
-    {
-      "id": "col-6",
-      "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738764996/photos/Belle_Vie_axxqu8.png",
-      "text": "4Life Transfer Factor Belle Vie, con mezclas exclusivas de antioxidantes y nutrientes, ofrece beneficios específicos para la salud femenina.",
-      "title": "4Life Transfer Factor Belle Vie",
-      "urlComprar": "https://colombia.4life.com/davidazul/product/transfer-factor-belle-vie/75"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "urlImage": "https://res.cloudinary.com/dt4pkrj5j/image/upload/v1738765036/photos/Renuvo_adv4si.png",
+    "title": "4Life Transfer Factor Renuvo",
+    "text": "¡El suplemento ideal de 4Life para sentirte renovado! Contiene todos los beneficios de la exclusiva fórmula 4Life Transfer Factor acompañado de zinc, que ayuda a fortalecer las defensas del organismo, vitamina D que contribuye al funcionamiento normal del sistema inmune, entre otros ingredientes de origen natural que promueven el bienestar general de tu cuerpo.",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/transfer-factor-renuvo-each/882",
+    "precio": 42000
+  },
+  {
+    "id": "2",
+    "urlImage": "/Energy_GoStix_1000x1000_20250314122733.png",
+    "title": "Energy Go Stix Berry",
+    "text": "¡Una práctica bebida en polvo que te ayudará a tener energía a lo largo del día! Disfruta el refrescante sabor a frutos rojos acompañado de las bondades de la mezcla de suero de leche y yema de huevo junto con una combinación de ingredientes energizantes de origen natural que impulsarán tu cuerpo y tu bienestar general.",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/energy-go-stix/16",
+    "precio": 29500
+  },
+  {
+    "id": "3",
+    "urlImage": "/Transfer_Factor_Plus_1000x1000.png",
+    "title": "4Life Transfer Factor Plus Tri-Factor Formula",
+    "text": "¡El producto más vendido en 4Life Colombia! Un suplemento dietario ideal para promover el bienestar general de tu organismo gracias a su exclusiva fórmula con Tri-Factor® Formula (mezcla de proteína de calostro bovino y yema de huevo) y zinc.",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/transfer-factor-plussuptradesup/89",
+    "precio": 51000
+  },
+  {
+    "id": "4",
+    "urlImage": "/BioEFA_1000x1000.png",
+    "title": "BioEFA",
+    "text": "Un suplemento dietario que contiene ácidos grasos esenciales provenientes de diferentes fuentes como omega 3, omega 6 y ácido linoléico. Una dieta saludable acompañada de ácidos grasos como omega 3 y omega 6, puede contribuir a disminuir el riesgo de enfermedades cardiovasculares.",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/bioefasuptradesup/3",
+    "precio": 34000
+  },
+  {
+    "id": "5",
+    "urlImage": "/Colombia_liv-rite_20210602155339.jpg",
+    "title": "LivRite",
+    "text": "LivRite® es una mezcla nutricional y herbal, muy útil para el bienestar del organismo. Combina los beneficios nutricionales del cardo mariano, trébol rojo, diente de león, brocolí y alcachofa",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/livritesupregsup/1522",
+    "precio": 38000
+  },
+  {
+    "id": "6",
+    "urlImage": "/BCV__1000x1000_20240704105709.png",
+    "title": "4Life Transfer Factor BCV+",
+    "text": "Aprovecha los beneficios de este producto que contiene todo el respaldo nutricional de 4Life junto con las bondades de la Tiamina (vitamina B1), que puede contribuir a la salud del corazón, entre otros componentes que promueven el bienestar general del organismo.",
+    "urlComprar": "https://colombia.4life.com/$$codigoAfiliado$$/product/transfer-factor-bcv/2459",
+    "precio": 46500
+  }
+]

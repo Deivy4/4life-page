@@ -1,9 +1,7 @@
 // components/Banner.tsx
 import React from "react";
-import { usePaisContext } from "@/context/PaisContext";
 
 const Banner = () => {
-  const { isColombia } = usePaisContext();
   return (
     <div className="p-6 bg-center text-gray-700 flex justify-center items-center relative">
       <div className="flex items-center justify-center flex-col sm:flex-row pb-10 sm:gap-8 md:gap-0">
@@ -37,9 +35,7 @@ const Banner = () => {
           <img
             alt="Productos 4Life"
             className="w-[45%] min-w-[300px] max-w-[750px] rounded-lg shadow-lg"
-            src={`${
-              isColombia() ? "/photo-alfonso-yanett.jpg" : "/png_davidAzul.png"
-            }`}
+            src="https://res.cloudinary.com/dt4pkrj5j/image/upload/v1770144563/photos/png_davidAzul_i0nkt1.png"
           />
         </div>
       </div>

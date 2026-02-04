@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/AppProviders.jsx", "src/components/Product.jsx", "src/components/SideRightBar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/AppProviders.jsx", "src/components/Product.jsx", "src/components/SideRightBar.jsx", "src/lib/Client4life.js", "src/components/Home.jsx", "src/context/SideBarContext.jsx"],
   "exclude": ["node_modules"]
 }
