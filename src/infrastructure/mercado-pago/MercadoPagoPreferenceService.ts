@@ -3,7 +3,7 @@ import { IPaymentGateway } from '@/domain/services/IPaymentGateway'
 import { mpClient } from './MercadoPagoClient'
 export class MercadoPagoPreferenceService implements IPaymentGateway {
   async createPreference(input: any) {
-    const costoEnvio = process.env.COSTO_ENVIO ? parseFloat(process.env.COSTO_ENVIO) : 0;
+    const costoEnvio = process.env.COSTO_ENVIO ? parseInt(process.env.COSTO_ENVIO) : 0;
     const preferenceBody = {
       external_reference: input.external_reference,
       items: input.items,
