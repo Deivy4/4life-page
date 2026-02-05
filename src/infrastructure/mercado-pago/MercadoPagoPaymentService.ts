@@ -10,7 +10,6 @@ export class MercadoPagoPaymentServiceImpl
     const payment = await new Payment(mercadopago).get({
       id: paymentId,
     })
-    console.log("MP PAYMENT", payment)
     // Validaciones mínimas (muy importante)
     if (!payment.status) {
       throw new Error("Payment sin status")
@@ -46,6 +45,7 @@ export class MercadoPagoPaymentServiceImpl
               : undefined,
           }
         : undefined,
+      shipping_amount: payment.shipping_amount || 0,
     }
   }
 }

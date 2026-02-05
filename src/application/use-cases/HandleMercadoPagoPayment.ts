@@ -16,7 +16,6 @@ export class HandleMercadoPagoPayment {
   async execute(paymentId: string) {
     // 1️⃣ Traer pago real desde MP
     const payment = await this.mpService.getPaymentById(paymentId)
-    console.log("Pago obtenido de MP:", payment)
     if (!payment.preference_id) {
       throw new Error("Pago sin preference_id")
     }
@@ -29,7 +28,7 @@ export class HandleMercadoPagoPayment {
     if (!preference) {
       throw new Error("Preferencia no encontrada")
     }
-
+    const pagoTotal = payment.transaction_amount + payment.shipping_amount;
     // 3️⃣ Actualizar estado del pago
     await this.mpPreferenceRepo.updateStatus({
       mp_preference_id: payment.preference_id,
@@ -37,7 +36,7 @@ export class HandleMercadoPagoPayment {
       mp_merchant_order_id: payment.order_id,
       status: payment.status,
       status_detail: payment.status_detail,
-      transaction_amount : payment.transaction_amount
+      transaction_amount : pagoTotal
     })
     
     
@@ -47,9 +46,9 @@ export class HandleMercadoPagoPayment {
     }
     await this.orderRepository.updatePedidoTotal({
       id: pedido.id,
-      total_pagado: payment.transaction_amount
+      total_pagado: pagoTotal
     })
-    pedido.total_pagado = payment.transaction_amount;
+    pedido.total_pagado = pagoTotal;
     // 4️⃣ Emitir novedad (evento)
     await this.onPaymentProcessed(pedido)
   }
