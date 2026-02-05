@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const PUBLIC_ROUTES = ["/", "/testimonios", "/contacto"];
+const PUBLIC_ROUTES = ["/", "/nuestra-vision", "/contacto"];
 
 export function middleware(req) {
   const { pathname } = req.nextUrl;

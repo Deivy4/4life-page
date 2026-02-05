@@ -40,7 +40,7 @@ export default function Page() {
         }
     }
   return (
-    <main className="contact-page">
+    <main className="contact-page mt-8">
       <section className="hero">
         <h1>Contacto</h1>
         <p>
@@ -101,25 +101,48 @@ export default function Page() {
       <style jsx>{`
         .contact-page {
           min-height: 100vh;
-          background: #f7f7f7;
+          background: #f8fafc;
         }
 
         .hero {
           text-align: center;
           padding: 4rem 1rem;
-          background: linear-gradient(135deg, #2e7d32, #66bb6a);
           color: white;
+          background: linear-gradient(
+            120deg,
+            #1e40af,
+            #2563eb,
+            #38bdf8,
+            #1e40af
+          );
+          background-size: 300% 300%;
+          animation: gradientMove 12s ease infinite;
         }
+
+        @keyframes gradientMove {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
 
         .hero h1 {
           font-size: 2.5rem;
           margin-bottom: 1rem;
+          font-weight: 700;
         }
 
         .hero p {
           font-size: 1.1rem;
           max-width: 600px;
           margin: 0 auto;
+          opacity: 0.95;
         }
 
         .content {
@@ -134,7 +157,7 @@ export default function Page() {
         .form {
           background: white;
           padding: 2rem;
-          border-radius: 12px;
+          border-radius: 16px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
@@ -146,55 +169,67 @@ export default function Page() {
 
         .field label {
           font-weight: 600;
-          margin-bottom: 0.3rem;
+          margin-bottom: 0.4rem;
+          color: #334155;
         }
 
         .field input,
         .field textarea {
-          padding: 0.7rem;
-          border-radius: 8px;
-          border: 1px solid #ccc;
+          padding: 0.75rem;
+          border-radius: 10px;
+          border: 1px solid #e2e8f0;
           font-size: 1rem;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .field input:focus,
         .field textarea:focus {
           outline: none;
-          border-color: #2e7d32;
+          border-color: #2563eb;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 
         button {
           width: 100%;
-          padding: 0.8rem;
+          padding: 0.85rem;
           border: none;
-          border-radius: 8px;
-          background: #2e7d32;
+          border-radius: 10px;
+          background: #2563eb;
           color: white;
           font-size: 1rem;
           font-weight: 600;
           cursor: pointer;
-          transition: background 0.2s;
+          transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
         }
 
         button:hover {
-          background: #256428;
+          background: #1e40af;
+          transform: translateY(-1px);
+          box-shadow: 0 6px 14px rgba(30, 64, 175, 0.25);
+        }
+
+        button:active {
+          transform: translateY(0);
+          box-shadow: none;
         }
 
         .info {
           background: white;
           padding: 2rem;
-          border-radius: 12px;
+          border-radius: 16px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .info h3 {
           margin-bottom: 1rem;
-          color: #2e7d32;
+          color: #1e40af;
+          font-weight: 700;
         }
 
         .info p {
           margin-bottom: 1rem;
-          line-height: 1.5;
+          line-height: 1.6;
+          color: #334155;
         }
 
         @media (max-width: 900px) {
@@ -203,6 +238,7 @@ export default function Page() {
           }
         }
       `}</style>
+
     </main>
   );
 }

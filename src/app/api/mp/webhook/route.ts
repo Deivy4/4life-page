@@ -19,15 +19,18 @@ export async function POST(request: NextRequest) {
     new MercadoPagoPaymentServiceImpl(),
     async (event) => {
       let notificacion = new BrevoEmailNotificationService();
-      await notificacion.sendMessage(`NOVEDAD DE PAGO:
+      await notificacion.sendMessage({
+        type: "NEW_PAYMENT",
+        message: `
+        Se ha recibido un nuevo pago a través de MercadoPago:
         nombre de persona que paga: ${event.nombre},
         telefono: ${event.telefono},
         email: ${event.email},
         ciudad: ${event.ciudad},
         direccion: ${event.direccion},
-        producto comprado (ID): ${event.product_id},
+        producto comprado: ${ event.product_id} - ${event.product_name},
         total pagado: ${event.total_pagado}
-        `);
+        `, subject: "💳 Nuevo pago recibido"});
     }
   )
 

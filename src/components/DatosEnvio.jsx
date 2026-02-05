@@ -8,8 +8,15 @@ const DatosEnvio = ({ idProduct })=>{
         ciudad: "",
         direccion: "",
     });
+    const [generandoPago, setGenerandoPago] = useState(false);
     const handlerSubmit = async (e) => {
+        if(generandoPago) return;
+        if(!datosEnvio.nombre || !datosEnvio.telefono || !datosEnvio.email || !datosEnvio.ciudad || !datosEnvio.direccion){
+            alert("Por favor complete todos los campos");
+            return;
+        }
         e.preventDefault();
+        setGenerandoPago(true);
         try {
             const items = [{
                 idProduct: idProduct,
@@ -86,9 +93,9 @@ const DatosEnvio = ({ idProduct })=>{
           <button
             type="submit"
             onClick={handlerSubmit}
-            className="md:col-span-2 bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition"
+            className={`${generandoPago ? "bg-gray-800" : "bg-green-600"} md:col-span-2 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition`}
           >
-            Confirmar pedido
+            {generandoPago ? "Generando pago..." : "Pagar"}
           </button>
         </form>
       </div>

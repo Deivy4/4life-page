@@ -5,7 +5,7 @@ import Banner from "./Banner";
 import BannerPromo from "./BannerPromo";
 import InfoProductUnique from "@/components/InfoProductUnique";
 import VideoBanner from "@/components/VideoBanner";
-import Testimonio from "@/components/Testomonio";
+import NuestraVision from "@/components/NuestraVision";
 import { useEffect, useState } from "react";
 import { GetProducts } from "@/lib/Client4life";
 
@@ -71,7 +71,7 @@ export default function Home() {
             })}
           </div>
         </div>
-        <Testimonio />
+        <NuestraVision />
         {/* <h2 className="text-4xl my-8">Notas y reseñas</h2>
       <div className="bg-orange-500 justify-center text-white container">
         <div className="w-[100%] flex flex-wrap gap-4 items-center justify-center">

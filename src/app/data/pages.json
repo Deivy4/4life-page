@@ -5,8 +5,8 @@
             "navigateTo": "/"
         },
         {
-            "name":"Testimonios",
-            "navigateTo": "/testimonios"
+            "name":"Nuestra visión",
+            "navigateTo": "/nuestra-vision"
         },
         {
             "name":"Contacto",

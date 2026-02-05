@@ -4,7 +4,7 @@ interface PageProps {
   }
 }
 
-const ENVIO_FIJO = 6000;
+const ENVIO_FIJO = process.env.COSTO_ENVIO ? parseInt(process.env.COSTO_ENVIO) : 7000;
 
 import productos from "../../data/products.json";
 import DatosEnvio from '@/components/DatosEnvio';
@@ -18,7 +18,7 @@ export default function Producto({ params }: PageProps) {
   const total = producto.precio + ENVIO_FIJO
 
   return (
-    <div className="mt-20 flex justify-center lg:block max-w-5xl mx-auto px-4 py-10">
+    <div className="mt-20 flex justify-center lg:block max-w-5xl mx-auto px-4 py-10 flex-col gap-8 lg:flex-row">
       {/* PRODUCTO */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Imagen */}
@@ -26,7 +26,7 @@ export default function Producto({ params }: PageProps) {
           <img
             src={producto.urlImage}
             alt={producto.title}
-            className="max-w-sm rounded-xl shadow-md"
+            className="max-w-xs rounded-xl shadow-md"
           />
         </div>
 

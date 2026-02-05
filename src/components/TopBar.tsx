@@ -41,10 +41,10 @@ export default function TopBar() {
             {/* LINKS DESKTOP */}
             <div className="">
               <Link
-                href="/testimonios"
+                href="/nuestra-vision"
                 className="text-white hover:text-cyan-300 transition-colors duration-300 font-medium"
               >
-                Testimonios
+                Nuestra visión
               </Link>
             </div>
           </div>

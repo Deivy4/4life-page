@@ -16,7 +16,7 @@ export class HandleMercadoPagoPayment {
   async execute(paymentId: string) {
     // 1️⃣ Traer pago real desde MP
     const payment = await this.mpService.getPaymentById(paymentId)
-
+    console.log("Pago obtenido de MP:", payment)
     if (!payment.preference_id) {
       throw new Error("Pago sin preference_id")
     }

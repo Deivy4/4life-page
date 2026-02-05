@@ -21,7 +21,28 @@ export async function POST(request: NextRequest){
     }
     const body = await request.json()
     let sendNotification = new BrevoEmailNotificationService();
-    await sendNotification.sendMessage(body.message);
+    await sendNotification.sendMessage({type:"GENERIC", message: body.message, subject: "Información de contacto"});
+    // let event = {
+    //     nombre: "test",
+    //     telefono: "123456789",
+    //     email: "test@gmail.com",
+    //     ciudad: "city",
+    //     direccion: "address",
+    //     product_id: "prod_123",
+    //     total_pagado: "100"
+    // }
+    // await sendNotification.sendMessage({
+    //     type: "NEW_PAYMENT",
+    //     message: `
+    //     Se ha recibido un nuevo pago a través de MercadoPago:
+    //     nombre de persona que paga: ${event.nombre},
+    //     telefono: ${event.telefono},
+    //     email: ${event.email},
+    //     ciudad: ${event.ciudad},
+    //     direccion: ${event.direccion},
+    //     producto comprado (ID): ${event.product_id},
+    //     total pagado: ${event.total_pagado}
+    //     `, subject: "💳 Nuevo pago recibido"});
     return new NextResponse(null, {
         status: 200,
     });
