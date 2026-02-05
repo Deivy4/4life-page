@@ -1,7 +1,7 @@
 import { Payment } from "mercadopago"
 import mercadopago from "@/lib/mercadoPago"
 import { MercadoPagoPaymentService } from "@/domain/payment/MercadoPagoPaymentService"
-
+import 'server-only'
 
 export class MercadoPagoPaymentServiceImpl
   implements MercadoPagoPaymentService {

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import { SupabaseMPPreferenceRepository } from "@/infrastructure/repositories/SupabaseMPPreferenceRepository"
 import { MercadoPagoPaymentServiceImpl } from "@/infrastructure/mercado-pago/MercadoPagoPaymentService"
 import { HandleMercadoPagoPayment } from "@/application/use-cases/HandleMercadoPagoPayment"
