@@ -68,7 +68,7 @@ export class BrevoEmailNotificationService implements INotification {
                     ${this.formatRow("Email", payload.message.match(/email: (.*)/)?.[1])}
                     ${this.formatRow("Ciudad", payload.message.match(/ciudad: (.*)/)?.[1])}
                     ${this.formatRow("Dirección", payload.message.match(/direccion: (.*)/)?.[1])}
-                    ${this.formatRow("Producto ID", payload.message.match(/producto comprado \\(ID\\): (.*)/)?.[1])}
+                    ${this.formatRow("Producto ID", payload.message.match(/producto comprado: (.*)/)?.[1])}
                     ${this.formatRow("Total pagado", payload.message.match(/total pagado: (.*)/)?.[1], true)}
                   </table>
                 </td>
