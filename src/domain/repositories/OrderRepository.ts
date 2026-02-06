@@ -26,7 +26,8 @@ export interface OrderRepository {
     direccion: string,
     product_id: string,
     telefono: string,
-    nombre: string
+    nombre: string,
+    product_name?: string
   } | null>
 
   findByEmail(email: string): Promise<

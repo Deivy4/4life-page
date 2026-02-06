@@ -13,6 +13,7 @@ export interface MercadoPagoPaymentService {
         number?: string
       }
     },
-    shipping_amount: number
+    shipping_amount: number,
+    description?: string
   }>
 }

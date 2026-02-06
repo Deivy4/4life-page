@@ -48,6 +48,7 @@ export class HandleMercadoPagoPayment {
       id: pedido.id,
       total_pagado: pagoTotal
     })
+    pedido.product_name = payment.description;
     pedido.total_pagado = pagoTotal;
     // 4️⃣ Emitir novedad (evento)
     await this.onPaymentProcessed(pedido)
