@@ -46,6 +46,7 @@ export class MercadoPagoPaymentServiceImpl
           }
         : undefined,
       shipping_amount: payment.shipping_amount || 0,
+      description: payment.description,
     }
   }
 }

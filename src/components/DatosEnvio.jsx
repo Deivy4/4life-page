@@ -90,13 +90,13 @@ const DatosEnvio = ({ idProduct })=>{
             required
           />
 
-          <button
-            type="submit"
+          <a
+            // type="submit"
             onClick={handlerSubmit}
-            className={`${generandoPago ? "bg-gray-800" : "bg-green-600 hover:bg-green-700 transition"} md:col-span-2 text-white py-3 rounded-lg font-semibold `}
+            className={`${generandoPago ? "bg-gray-800" : "bg-green-600 hover:bg-green-700 transition cursor-pointer" } md:col-span-2 text-white py-3 rounded-lg font-semibold `}
           >
             {generandoPago ? "Generando pago..." : "Pagar"}
-          </button>
+          </a>
         </form>
       </div>
     );
