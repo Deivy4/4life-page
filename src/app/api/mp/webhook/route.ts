@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
     new SupabaseMPPreferenceRepository(),
     new MercadoPagoPaymentServiceImpl(),
     async (event) => {
+      console.log(event);
       let notificacion = new BrevoEmailNotificationService();
       await notificacion.sendMessage({
         type: "NEW_PAYMENT",
