@@ -3,6 +3,16 @@ import { EmailNotificationPayload, INotification } from "@/domain/services/INoti
 
 const BREVO_URL = "https://api.brevo.com/v3/smtp/email"
 
+export interface PedidoConfirmadoPayload {
+  nombre: string
+  email: string
+  telefono: string
+  ciudad: string
+  direccion: string
+  producto: string
+  total: number
+}
+
 export class BrevoEmailNotificationService implements INotification {
   private readonly apiKey = process.env.BREVO_API_KEY!
   private readonly senderName = process.env.SENDER_NAME!
@@ -30,6 +40,28 @@ export class BrevoEmailNotificationService implements INotification {
       }
     }
   )
+  }
+
+  async sendConfirmacionCliente(payload: PedidoConfirmadoPayload): Promise<void> {
+    if (!this.apiKey || !this.senderEmail || !payload.email) return
+
+    const html = this.confirmacionClienteTemplate(payload)
+
+    await axios.post(
+      BREVO_URL,
+      {
+        sender: { name: this.senderName, email: this.senderEmail },
+        to: [{ email: payload.email }],
+        subject: "✅ Tu pedido fue confirmado - 4Life Protección Inmunitaria",
+        htmlContent: html
+      },
+      {
+        headers: {
+          "api-key": this.apiKey,
+          "Content-Type": "application/json"
+        }
+      }
+    )
   }
 
   private buildTemplate(payload: EmailNotificationPayload): string {
@@ -112,6 +144,64 @@ export class BrevoEmailNotificationService implements INotification {
           ${value}
         </td>
       </tr>
+    `
+  }
+
+  private confirmacionClienteTemplate(payload: PedidoConfirmadoPayload): string {
+    return `
+    <div style="background-color:#f4f6f8;padding:30px 0;font-family:Arial,Helvetica,sans-serif">
+      <table width="100%">
+        <tr>
+          <td align="center">
+            <table width="600" style="background:#ffffff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08)">
+              
+              <tr>
+                <td style="background:#16a34a;padding:20px 30px;text-align:center">
+                  <h1 style="margin:0;color:#ffffff;font-size:24px">
+                    ✅ Tu pedido fue confirmado
+                  </h1>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding:30px">
+                  <p style="color:#334155;font-size:16px;margin-bottom:20px">
+                    Hola <strong>${payload.nombre}</strong>, gracias por tu compra. Tu pedido ha sido confirmado y será procesado a la brevedad.
+                  </p>
+
+                  <table width="100%" style="font-size:14px;border-collapse:collapse;margin-bottom:20px">
+                    ${this.formatRow("Producto", payload.producto)}
+                    ${this.formatRow("Total pagado", `$${payload.total.toLocaleString()}`, true)}
+                  </table>
+
+                  <div style="background:#f1f5f9;padding:15px;border-radius:8px;margin-top:15px">
+                    <p style="color:#334155;font-size:14px;margin:0">
+                      <strong>📦 Datos de envío:</strong><br/>
+                      ${payload.ciudad}, ${payload.direccion}<br/>
+                      Tel: ${payload.telefono}
+                    </p>
+                  </div>
+
+                  <p style="color:#64748b;font-size:13px;margin-top:20px">
+                    Te contactaremos pronto para confirmar los tiempos de entrega.<br/>
+                    ¿Tenés dudas? Escribinos a davidazul.4life@gmail.com
+                  </p>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="background:#0f172a;padding:16px;text-align:center">
+                  <p style="font-size:12px;color:#94a3b8;margin:0">
+                    4Life Protección Inmunitaria · Impacto Saludable
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
     `
   }
 

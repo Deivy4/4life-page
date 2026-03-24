@@ -1,5 +1,5 @@
 import { IProductRepository } from "@/domain/repositories/IProductRepository"
-import { ProductPay } from "@/domain/entities/Product"
+import { ProductPay, Product } from "@/domain/entities/Product"
 import products from "@/app/data/products.json"
 export class ProductsLocalRepository implements IProductRepository {
 
@@ -12,5 +12,17 @@ export class ProductsLocalRepository implements IProductRepository {
         currency_id: "ARS",
         quantity : 1
     }
-}
+  }
+
+  async getActivosConStock(): Promise<Product[] | null> {
+    return products.map(p => ({
+      id: p.id,
+      name: p.title,
+      price: p.precio,
+      is_active: true,
+      url_image: p.urlImage,
+      description: p.text,
+      product_stock: { quantity: 99 }
+    }))
+  }
 }

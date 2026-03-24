@@ -1,7 +1,7 @@
 import { MPPreferenceRepository } from "@/domain/repositories/MPPreferenceRepository"
 import { MercadoPagoPaymentService } from "@/domain/payment/MercadoPagoPaymentService"
 import { OrderRepository } from "@/domain/repositories/OrderRepository"
-import { SupabaseOrderRepository } from "@/infrastructure/repositories/SupabaseOrderRepository"
+import { SupabaseOrderRepository, PedidoEstado } from "@/infrastructure/repositories/SupabaseOrderRepository"
 
 export class HandleMercadoPagoPayment {
   private readonly orderRepository: OrderRepository
@@ -48,9 +48,22 @@ export class HandleMercadoPagoPayment {
       id: pedido.id,
       total_pagado: pagoTotal
     })
-    pedido.product_name = payment.description;
+    
+    // Actualizar estado del pedido según el estado de pago de MP
+    const estadoPedido = payment.status === "approved" ? PedidoEstado.APROBADO : 
+                         payment.status === "rejected" ? PedidoEstado.RECHAZADO :
+                         PedidoEstado.PENDIENTE
+    await this.orderRepository.updateEstado({
+      id: pedido.id,
+      estado: estadoPedido
+    })
+    
+pedido.product_name = payment.description;
     pedido.total_pagado = pagoTotal;
     // 4️⃣ Emitir novedad (evento)
-    await this.onPaymentProcessed(pedido)
+    await this.onPaymentProcessed({
+      ...pedido,
+      estado: estadoPedido
+    })
   }
 }

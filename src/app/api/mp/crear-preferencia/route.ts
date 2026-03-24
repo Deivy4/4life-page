@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { NextRequest, NextResponse } from 'next/server'
 import { MercadoPagoPreferenceService } from "@/infrastructure/mercado-pago/MercadoPagoPreferenceService"
 import { CreatePaymentPreference } from '@/application/use-cases/CreatePaymentPreference'

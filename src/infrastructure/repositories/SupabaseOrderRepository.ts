@@ -1,6 +1,14 @@
 import { OrderRepository } from "@/domain/repositories/OrderRepository"
 import { supabaseServer } from "@/lib/supabase/server"
 
+export enum PedidoEstado {
+  PENDIENTE = "pendiente",
+  APROBADO = "aprobado",
+  RECHAZADO = "rechazado",
+  ENVIADO = "enviado",
+  ENTREGADO = "entregado"
+}
+
 export class SupabaseOrderRepository implements OrderRepository {
   async create(input: {
     mp_preference_id: string
@@ -26,6 +34,7 @@ export class SupabaseOrderRepository implements OrderRepository {
         direccion: input.direccion,
         product_id: input.product_id,
         total_pagado: input.total_pagado,
+        estado: PedidoEstado.PENDIENTE,
       })
       .select("id, created_at")
       .single()
@@ -130,6 +139,22 @@ export class SupabaseOrderRepository implements OrderRepository {
 
     if (error) {
       throw new Error(`Error actualizando pedido: ${error.message}`)
+    }
+  }
+
+  async updateEstado(input: {
+    id: string
+    estado: PedidoEstado
+  }): Promise<void> {
+    const { error } = await supabaseServer
+      .from("pedidos")
+      .update({
+        estado: input.estado
+      })
+      .eq("id", input.id)
+
+    if (error) {
+      throw new Error(`Error actualizando estado del pedido: ${error.message}`)
     }
   }
 

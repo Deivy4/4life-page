@@ -43,4 +43,9 @@ export interface OrderRepository {
     id: string
     total_pagado: number
   }): Promise<void>
+
+  updateEstado(input: {
+    id: string
+    estado: string
+  }): Promise<void>
 }

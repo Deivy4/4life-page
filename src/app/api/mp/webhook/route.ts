@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { NextRequest } from 'next/server'
 import { SupabaseMPPreferenceRepository } from "@/infrastructure/repositories/SupabaseMPPreferenceRepository"
 import { MercadoPagoPaymentServiceImpl } from "@/infrastructure/mercado-pago/MercadoPagoPaymentService"
@@ -17,21 +19,37 @@ export async function POST(request: NextRequest) {
   const useCase = new HandleMercadoPagoPayment(
     new SupabaseMPPreferenceRepository(),
     new MercadoPagoPaymentServiceImpl(),
-    async (event) => {
-      console.log(event);
-      let notificacion = new BrevoEmailNotificationService();
+    async (pedido) => {
+      console.log("Procesando pedido:", pedido);
+      
+      // Enviar notificación al admin
+      const notificacion = new BrevoEmailNotificationService();
       await notificacion.sendMessage({
         type: "NEW_PAYMENT",
         message: `
         Se ha recibido un nuevo pago a través de MercadoPago:
-        nombre de persona que paga: ${event.nombre},
-        telefono: ${event.telefono},
-        email: ${event.email},
-        ciudad: ${event.ciudad},
-        direccion: ${event.direccion},
-        producto comprado: ${ event.product_id} - ${event.product_name},
-        total pagado: ${event.total_pagado}
+        nombre de persona que paga: ${pedido.nombre},
+        telefono: ${pedido.telefono},
+        email: ${pedido.email},
+        ciudad: ${pedido.ciudad},
+        direccion: ${pedido.direccion},
+        producto comprado: ${pedido.product_id} - ${pedido.product_name},
+        total pagado: ${pedido.total_pagado},
+        estado del pedido: ${pedido.estado}
         `, subject: "💳 Nuevo pago recibido"});
+      
+      // Enviar confirmación al cliente solo si el pago fue aprobado
+      if (pedido.estado === "aprobado") {
+        await notificacion.sendConfirmacionCliente({
+          nombre: pedido.nombre,
+          email: pedido.email,
+          telefono: pedido.telefono,
+          ciudad: pedido.ciudad,
+          direccion: pedido.direccion,
+          producto: pedido.product_name,
+          total: pedido.total_pagado
+        });
+      }
     }
   )
 

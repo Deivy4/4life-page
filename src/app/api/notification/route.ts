@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import { BrevoEmailNotificationService } from '@/infrastructure/brevo/BrevoEmailService';
 import { NextResponse, NextRequest } from 'next/server';
 // import TelegramBot from 'node-telegram-bot-api';
