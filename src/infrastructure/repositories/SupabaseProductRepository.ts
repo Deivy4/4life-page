@@ -1,5 +1,5 @@
 import { IProductRepository } from "@/domain/repositories/IProductRepository"
-import { ProductPay } from "@/domain/entities/Product"
+import { Product, ProductPay } from "@/domain/entities/Product"
 import { supabaseServer  } from "@/lib/supabase/server"
 
 export class SupabaseProductRepository implements IProductRepository {
@@ -21,5 +21,23 @@ export class SupabaseProductRepository implements IProductRepository {
       quantity : 0
     }
   }
+  async getActivosConStock(): Promise<Product[] | null> {
+    const { data, error } = await supabaseServer
+      .from("products")
+      .select(`
+        *,
+        product_stock (
+          quantity
+        )
+      `)
+      .eq("active", true)
+      .gt("product_stock.quantity", 0)
 
+    if (error) {
+      console.error(error)
+      return null
+    }
+
+    return data as Product[]
+  }
 }

@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <a
             target="_blank"
-            href={"https://www.facebook.com/profile.php?id=100090963076657"}
+            href={"https://www.facebook.com/people/Protecci%C3%B3n-Inmunitaria-con-4Life-Argentina-Distribuidor-Independiente/61562064733978/"}
             className="flex gap-4 p-2 items-center w-min hover:scale-105 transition-transform duration-300"
           >
             <FaFacebook className="text-2xl min-w-5 cursor-pointer text-blue-200" />
@@ -38,7 +38,7 @@ export default function Footer() {
 
           <a
             target="_blank"
-            href="https://api.whatsapp.com/send?phone=+573041054830&text=%C2%A1Hola!%20%F0%9F%91%8B%20Estoy%20interesado(a)%20en%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20de%204Life.%20%F0%9F%92%8A%E2%9C%A8%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20las%20opciones%20disponibles,%20beneficios%20y%20precios.%20%C2%BFMe%20podr%C3%ADas%20ayudar?%20%F0%9F%99%8F%20%C2%A1Gracias!"
+            href="https://api.whatsapp.com/send?phone=+542616657453&text=%C2%A1Hola!%20%F0%9F%91%8B%20Estoy%20interesado(a)%20en%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20productos%20de%204Life.%20%F0%9F%92%8A%E2%9C%A8%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20las%20opciones%20disponibles,%20beneficios%20y%20precios.%20%C2%BFMe%20podr%C3%ADas%20ayudar?%20%F0%9F%99%8F%20%C2%A1Gracias!"
             className="flex gap-4 p-2 items-center w-min hover:scale-105 transition-transform duration-300"
           >
             <FaWhatsapp className="text-2xl min-w-5 text-green-400 cursor-pointer" />
